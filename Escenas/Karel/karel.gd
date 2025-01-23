@@ -12,18 +12,18 @@ var max_inventory : int = 5
 var can_Move : bool = true
 
 #signal for coroutines
-signal moved
+signal unblock
 
 #Referencia de TileMapLayer
 @export var tileMapLayer: TileMapLayer
 @onready var spr : Sprite2D = $Sprite2D
 
-func move():
-	if not can_Move:
-		return
+func move()-> Signal:
+	#print(tileMapLayer.get_cell_source_id(grid_position))
 	
-	var next_position = grid_position
+	var next_position = Vector2(grid_position.x, grid_position.y)
 	var dir = Direction[direction]
+	
 	match dir:
 		"UP":
 			next_position.y -=1
@@ -34,10 +34,21 @@ func move():
 		"LEFT":
 			next_position.x -= 1
 	
-	#Comprobar límites y coliciones
+	if tileMapLayer.get_cell_source_id(Vector2i(next_position.x, next_position.y)) == 2:
+		print("Karel NO PUEDE AVANZAR")
+		return unblock
+	
+	if not can_Move:
+		print("Karel NO PUEDE AVANZAR")
+		return unblock
+	
 	
 	#Mover visualmente
-	move_animation(next_position)
+	var tween = create_tween()
+	tween.tween_property(self, "position", next_position * TITLE_SIZE, 0.5)
+	grid_position = Vector2i(next_position.x, next_position.y)
+	print(grid_position)
+	return tween.finished
  
 
 func turn()-> Signal:
@@ -46,9 +57,3 @@ func turn()-> Signal:
 	var new_rotation = spr.rotation_degrees + 90
 	tween.tween_property(spr, "rotation_degrees", new_rotation, 0.5 )
 	return tween.finished
-
-#Funcion de animacion del movimiento
-func move_animation(targer_pos: Vector2) -> void:
-	var tween = create_tween()
-	tween.tween_property(self, "position", targer_pos * TITLE_SIZE, 0.5)
-	moved.emit()

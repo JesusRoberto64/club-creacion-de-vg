@@ -2,16 +2,34 @@ extends Node2D
 
 @onready var karel = $Area/karel
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	execute_instructions()
-	pass # Replace with function body.
+var steps = []
+var executing = false
+
+func _ready() -> void:
+	move()
+	move()
+	move()
+	turn()
+	move()
+
+func move():
+	steps.append("move")
+
+func turn():
+	steps.append("turn")
+	pass
 
 func execute_instructions():
-	#Ingresa las instrucciones para Karel
-	#karel.move()
-	await karel.turn()
-	karel.move()
+	if executing: 
+		print("Ejecutando")
+		return
 	
+	executing = true
+	for i in steps:
+		if i == "move":
+			await karel.move()
+		elif i == "turn":
+			await karel.turn()
+	executing = false
 	
-	print("Fin de programa")
+	print("FINAL")
