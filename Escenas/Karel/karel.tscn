@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d22hedriltsea"]
 
 [ext_resource type="Script" path="res://Escenas/Karel/karel.gd" id="1_qmmfn"]
-[ext_resource type="Texture2D" uid="uid://oq8pndbdxkhp" path="res://icon.svg" id="2_l2tvm"]
+[ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel.png" id="2_s0dqv"]
 
 [node name="karel" type="Node2D"]
 script = ExtResource("1_qmmfn")
@@ -10,10 +10,5 @@ metadata/_edit_horizontal_guides_ = [32.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, 16)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_l2tvm")
+texture = ExtResource("2_s0dqv")
 region_rect = Rect2(0, 0, 54, 46)
-
-[node name="Polygon2D" type="Polygon2D" parent="Sprite2D"]
-position = Vector2(-32, -32)
-polygon = PackedVector2Array(48, 0, 80, 32, 48, 64)

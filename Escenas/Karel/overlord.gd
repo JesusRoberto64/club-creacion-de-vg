@@ -33,3 +33,6 @@ func execute_instructions():
 	executing = false
 	
 	print("FINAL")
+
+func restart():
+	get_tree().reload_current_scene()

@@ -10,6 +10,7 @@ var direction = 1
 var inventory : Array = []
 var max_inventory : int = 5
 var can_Move : bool = true
+var delay = 0.25
 
 #signal for coroutines
 signal unblock
@@ -19,7 +20,6 @@ signal unblock
 @onready var spr : Sprite2D = $Sprite2D
 
 func move()-> Signal:
-	#print(tileMapLayer.get_cell_source_id(grid_position))
 	
 	var next_position = Vector2(grid_position.x, grid_position.y)
 	var dir = Direction[direction]
@@ -38,22 +38,31 @@ func move()-> Signal:
 		print("Karel NO PUEDE AVANZAR")
 		return unblock
 	
-	if not can_Move:
-		print("Karel NO PUEDE AVANZAR")
-		return unblock
+	#if not can_Move:
+		#print("Karel NO PUEDE AVANZAR")
+		#return unblock
 	
 	
 	#Mover visualmente
 	var tween = create_tween()
-	tween.tween_property(self, "position", next_position * TITLE_SIZE, 0.5)
+	tween.tween_property(self, "position", next_position * TITLE_SIZE, delay)
 	grid_position = Vector2i(next_position.x, next_position.y)
 	print(grid_position)
 	return tween.finished
  
-
 func turn()-> Signal:
 	direction = (direction + 1) % 4 #Puedes usar direction por que enum regresa un int
 	var tween = create_tween()
 	var new_rotation = spr.rotation_degrees + 90
-	tween.tween_property(spr, "rotation_degrees", new_rotation, 0.5 )
+	tween.tween_property(spr, "rotation_degrees", new_rotation, delay )
 	return tween.finished
+
+func pickup():
+	
+	pass
+
+func drop():
+	pass
+
+func paint():
+	pass
