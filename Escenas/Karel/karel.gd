@@ -3,14 +3,13 @@ extends Node2D
 const TITLE_SIZE : int = 32
 
 #Direccion que mira Karel 
-var Direction = ["UP", "RIGHT", "DOWN", "LEFT"]
+var Direction : Array = ["UP", "RIGHT", "DOWN", "LEFT"]
 
 var grid_position = Vector2i.ZERO
-var direction = 1
+var direction : int = 1
 var inventory : Array = []
 var max_inventory : int = 5
-var can_Move : bool = true
-var delay = 0.25
+var delay : float = 0.25
 
 #signal for coroutines
 signal unblock
@@ -19,11 +18,9 @@ signal unblock
 @export var tileMapLayer: TileMapLayer
 @onready var spr : Sprite2D = $Sprite2D
 
-func move()-> Signal:
-	
+func get_next_position()-> Vector2:
 	var next_position = Vector2(grid_position.x, grid_position.y)
 	var dir = Direction[direction]
-	
 	match dir:
 		"UP":
 			next_position.y -=1
@@ -33,15 +30,14 @@ func move()-> Signal:
 			next_position.y += 1
 		"LEFT":
 			next_position.x -= 1
+	return next_position
+
+func move()-> Signal:
+	var next_position = get_next_position()
 	
-	if tileMapLayer.get_cell_source_id(Vector2i(next_position.x, next_position.y)) == 2:
+	if !is_free_space():
 		print("Karel NO PUEDE AVANZAR")
 		return unblock
-	
-	#if not can_Move:
-		#print("Karel NO PUEDE AVANZAR")
-		#return unblock
-	
 	
 	#Mover visualmente
 	var tween = create_tween()
@@ -57,8 +53,14 @@ func turn()-> Signal:
 	tween.tween_property(spr, "rotation_degrees", new_rotation, delay )
 	return tween.finished
 
-func pickup():
+func is_free_space()-> bool:
+	var next_position = get_next_position()
 	
+	if tileMapLayer.get_cell_source_id(Vector2i(next_position.x, next_position.y)) == 2:
+		return false
+	return true
+
+func pickup():
 	pass
 
 func drop():
@@ -66,3 +68,6 @@ func drop():
 
 func paint():
 	pass
+
+func reset():
+	unblock.emit()

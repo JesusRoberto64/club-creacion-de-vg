@@ -1,10 +1,25 @@
-[gd_scene load_steps=10 format=4 uid="uid://62riegb85mxg"]
+[gd_scene load_steps=13 format=4 uid="uid://62riegb85mxg"]
 
 [ext_resource type="Script" path="res://Escenas/Karel/overlord.gd" id="1_nbbbb"]
 [ext_resource type="PackedScene" uid="uid://d22hedriltsea" path="res://Escenas/Karel/karel.tscn" id="2_4r6bj"]
 [ext_resource type="Texture2D" uid="uid://ddipe3vsy58ov" path="res://Recursos/Img/floor.png" id="2_34qkr"]
 [ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/wall.png" id="3_ynoeh"]
 [ext_resource type="Texture2D" uid="uid://b11p0maqdfxna" path="res://Recursos/Img/floor2.png" id="4_0ieit"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jswun"]
+texture = ExtResource("4_0ieit")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71dl5"]
+texture = ExtResource("2_34qkr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_oi6mf"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_jswun")
+sources/1 = SubResource("TileSetAtlasSource_71dl5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0w8f0"]
 resource_name = "Floor"
@@ -34,8 +49,13 @@ script = ExtResource("1_nbbbb")
 [node name="Area" type="Node2D" parent="."]
 position = Vector2(160, 48)
 
+[node name="TileMapBg" type="TileMapLayer" parent="Area"]
+tile_map_data = PackedByteArray("AAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAACAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAAAAQAAAAAAAAADAAAAAQAAAAAAAAABAAIAAQAAAAAAAAAFAAIAAQAAAAAAAAADAAIAAQAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_oi6mf")
+metadata/_edit_lock_ = true
+
 [node name="TileMapLayer" type="TileMapLayer" parent="Area"]
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAADAAAABAAAAAAAAAAEAAAAAQAAAAAAAAAFAAAABAAAAAAAAAAFAAEAAQAAAAAAAAAEAAEABAAAAAAAAAADAAEAAQAAAAAAAAACAAEABAAAAAAAAAABAAEAAQAAAAAAAAAAAAEABAAAAAAAAAAAAAIAAQAAAAAAAAACAAIAAQAAAAAAAAADAAIAAgAAAAAAAAAEAAIAAQAAAAAAAAAFAAIABAAAAAAAAAABAAAABAAAAAAAAAACAAAAAgAAAAAAAAABAAIABAAAAAAAAAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAIAAgAAAAAAAAAGAAEAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAP//AgAAAAAAAAAEAP//AgAAAAAAAAADAP//AgAAAAAAAAACAP//AgAAAAAAAAABAP//AgAAAAAAAAAAAP//AgAAAAAAAAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD//wIAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAIAAgAAAAAAAAAGAAEAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAP//AgAAAAAAAAAEAP//AgAAAAAAAAADAP//AgAAAAAAAAACAP//AgAAAAAAAAABAP//AgAAAAAAAAAAAP//AgAAAAAAAAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD//wIAAgAAAAAAAAADAAIAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_iy2tf")
 collision_enabled = false
 navigation_enabled = false

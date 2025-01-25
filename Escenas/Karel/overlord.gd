@@ -2,37 +2,60 @@ extends Node2D
 
 @onready var karel = $Area/karel
 
+var processExecute = false
+var firstExecute = false
+var execute = false
 var steps = []
-var executing = false
 
 func _ready() -> void:
-	move()
-	move()
-	move()
-	turn()
-	move()
+	set_move()
+	set_move()
+	set_turn()
+
+func _process(_delta: float) -> void:
+	if karel.is_free_space():
+		move()
+	else:
+		turn()
 
 func move():
-	steps.append("move")
+	if !execute: return
+	if !processExecute:
+		processExecute = true
+		await karel.move()
+		processExecute = false
 
 func turn():
+	if !execute: return
+	if !processExecute:
+		processExecute = true
+		await karel.turn()
+		processExecute = false
+
+func set_move():
+	steps.append("move")
+
+func set_turn():
 	steps.append("turn")
-	pass
 
 func execute_instructions():
-	if executing: 
-		print("Ejecutando")
+	#las intrucciones iniciales
+	if firstExecute: 
+		print("Ejecutado")
 		return
+	firstExecute = true
 	
-	executing = true
-	for i in steps:
-		if i == "move":
-			await karel.move()
-		elif i == "turn":
-			await karel.turn()
-	executing = false
+	if steps.size() > 1:
+		for i in steps:
+			if i == "move":
+				await karel.move()
+			elif i == "turn":
+				await karel.turn()
+	else :
+		print("Sin órdenes iniciales")
 	
-	print("FINAL")
+	execute = true #despues de las instrucciones iniciales
+	print("FINALIZA ORDENES INICIALES")
 
 func restart():
 	get_tree().reload_current_scene()
