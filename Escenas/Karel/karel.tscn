@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d22hedriltsea"]
 
 [ext_resource type="Script" path="res://Escenas/Karel/karel.gd" id="1_qmmfn"]
-[ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel.png" id="2_s0dqv"]
+[ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel/karel.png" id="2_s0dqv"]
 
 [node name="karel" type="Node2D"]
 script = ExtResource("1_qmmfn")

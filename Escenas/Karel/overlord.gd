@@ -13,10 +13,11 @@ func _ready() -> void:
 	set_turn()
 
 func _process(_delta: float) -> void:
-	if karel.is_free_space():
-		move()
-	else:
-		turn()
+	#if karel.is_free_space():
+		#move()
+	#else:
+		#turn()
+	pass
 
 func move():
 	if !execute: return

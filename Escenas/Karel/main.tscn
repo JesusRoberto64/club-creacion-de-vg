@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Escenas/Karel/overlord.gd" id="1_nbbbb"]
 [ext_resource type="PackedScene" uid="uid://d22hedriltsea" path="res://Escenas/Karel/karel.tscn" id="2_4r6bj"]
-[ext_resource type="Texture2D" uid="uid://ddipe3vsy58ov" path="res://Recursos/Img/floor.png" id="2_34qkr"]
-[ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/wall.png" id="3_ynoeh"]
-[ext_resource type="Texture2D" uid="uid://b11p0maqdfxna" path="res://Recursos/Img/floor2.png" id="4_0ieit"]
+[ext_resource type="Texture2D" uid="uid://ddipe3vsy58ov" path="res://Recursos/Img/karel/floor.png" id="2_34qkr"]
+[ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="3_ynoeh"]
+[ext_resource type="Texture2D" uid="uid://b11p0maqdfxna" path="res://Recursos/Img/karel/floor2.png" id="4_0ieit"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jswun"]
 texture = ExtResource("4_0ieit")
@@ -67,17 +67,16 @@ metadata/_edit_lock_ = true
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 192.0
 offset_right = 576.0
-offset_bottom = 328.0
+offset_bottom = 136.0
 size_flags_horizontal = 4
 
 [node name="Play" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 88.0
-offset_right = 256.0
-offset_bottom = 119.0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 47.0
 text = "Play"
 
 [node name="Polygon2D" type="Polygon2D" parent="Control/Play"]
@@ -85,10 +84,10 @@ polygon = PackedVector2Array(80, 8, 80, 24, 96, 16)
 
 [node name="Play2" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 88.0
-offset_right = 384.0
-offset_bottom = 119.0
+offset_left = 8.0
+offset_top = 64.0
+offset_right = 112.0
+offset_bottom = 95.0
 text = "Restart"
 
 [connection signal="pressed" from="Control/Play" to="." method="execute_instructions"]

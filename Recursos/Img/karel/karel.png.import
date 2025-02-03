@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd6dx6e5il6jt"
-path="res://.godot/imported/paint.png-1cb5d86c58f2d429f4513c93595d9a55.ctex"
+uid="uid://dbr4gx0f4645u"
+path="res://.godot/imported/karel.png-c11fd0ac6942041a999624e75585f434.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Img/paint.png"
-dest_files=["res://.godot/imported/paint.png-1cb5d86c58f2d429f4513c93595d9a55.ctex"]
+source_file="res://Recursos/Img/karel/karel.png"
+dest_files=["res://.godot/imported/karel.png-c11fd0ac6942041a999624e75585f434.ctex"]
 
 [params]
 
