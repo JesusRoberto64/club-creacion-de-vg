@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dexnjvkw7vems"]
+[gd_scene load_steps=11 format=4 uid="uid://dexnjvkw7vems"]
 
 [ext_resource type="Script" path="res://Escenas/Juguete_1/player.gd" id="1_k0ywn"]
 [ext_resource type="Texture2D" uid="uid://b11p0maqdfxna" path="res://Recursos/Img/karel/floor2.png" id="1_xj2yi"]
@@ -28,6 +28,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_n8a72")
 sources/1 = SubResource("TileSetAtlasSource_gn41f")
 
+[sub_resource type="Curve" id="Curve_px5ei"]
+_data = [Vector2(0, 0), 0.0, 1.00957, 0, 1, Vector2(0.990521, 1), 1.00957, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tfaom"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4thnc"]
 size = Vector2(16, 16)
 
@@ -40,6 +48,9 @@ tile_set = SubResource("TileSet_k6rgr")
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(104, 96)
 script = ExtResource("1_k0ywn")
+maxVel = 200.0
+start_curve = SubResource("Curve_px5ei")
+end_curve = SubResource("Curve_tfaom")
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 texture = ExtResource("4_57750")
