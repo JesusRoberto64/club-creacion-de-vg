@@ -29,12 +29,12 @@ sources/0 = SubResource("TileSetAtlasSource_n8a72")
 sources/1 = SubResource("TileSetAtlasSource_gn41f")
 
 [sub_resource type="Curve" id="Curve_px5ei"]
-_data = [Vector2(0, 0), 0.0, 1.00957, 0, 1, Vector2(0.990521, 1), 1.00957, 0.0, 1, 0]
+_data = [Vector2(0, 0.351648), 0.0, 0.0775695, 0, 0, Vector2(0.683333, 1), 0.863644, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_tfaom"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="Curve" id="Curve_m8e02"]
+_data = [Vector2(0, 0.472527), 0.0, -3.03768, 0, 1, Vector2(0.155556, 0), -3.03768, 0.0, 1, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4thnc"]
 size = Vector2(16, 16)
@@ -48,9 +48,8 @@ tile_set = SubResource("TileSet_k6rgr")
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(104, 96)
 script = ExtResource("1_k0ywn")
-maxVel = 200.0
 start_curve = SubResource("Curve_px5ei")
-end_curve = SubResource("Curve_tfaom")
+end_curve = SubResource("Curve_m8e02")
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 texture = ExtResource("4_57750")
