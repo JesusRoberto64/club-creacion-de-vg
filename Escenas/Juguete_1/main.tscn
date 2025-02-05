@@ -48,6 +48,8 @@ tile_set = SubResource("TileSet_k6rgr")
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(104, 96)
 script = ExtResource("1_k0ywn")
+maxVel = 120.0
+sprint = 37.0
 start_curve = SubResource("Curve_px5ei")
 end_curve = SubResource("Curve_m8e02")
 

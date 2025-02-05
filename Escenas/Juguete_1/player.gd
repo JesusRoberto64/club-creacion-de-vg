@@ -1,13 +1,18 @@
 extends CharacterBody2D
 
-enum STATE {FLOOR, FLY, FALLING}
+enum STATE { WALK, FLY, JUMPING, FALLING }
+var state = STATE.FALLING
+
 var maxJumpAir = 1
 var jumpedAir = 0
 
 var direction : Vector2 = Vector2.ZERO
 var lastDirection : Vector2 = Vector2.RIGHT
-var gravity = Vector2(0.0, 1.0) * 5.0
+var gravity = 8.6
+
+var baseMaxVel
 @export var maxVel = 100.0
+@export_range(0, 100, 0.1) var sprint : float = 20
 
 @export var start_curve : Curve = null
 @export var end_curve : Curve = null
@@ -15,6 +20,9 @@ var gravity = Vector2(0.0, 1.0) * 5.0
 #Attack decay sustain realeace
 var accel = 0.0
 var curveValue = 0.0
+
+func _ready() -> void:
+	baseMaxVel = maxVel
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,10 +32,21 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_left"):
 		direction.x = -1
 	
-	if Input.is_action_pressed("ui_down"):
-		direction.y = 1 
-	if Input.is_action_pressed("ui_up"):
-		direction.y = -1
+	#este es el sitema que se mueve en eje y 
+	if state == STATE.FLY:
+		if Input.is_action_pressed("ui_down"):
+			direction.y = 1 
+		if Input.is_action_pressed("ui_up"):
+			direction.y = -1
+	else:
+		if state == STATE.FALLING:
+			direction.y = 1
+		
+		if Input.is_action_pressed("ui_up"):
+			if state == STATE.WALK:
+				print("jump")
+				state = STATE.JUMPING
+	#Quiciera que hubiera un 
 	
 	if direction.length() <= 0.0:
 		curveValue -= delta
@@ -42,11 +61,20 @@ func _process(delta: float) -> void:
 		lastDirection = direction
 	
 	if Input.is_action_pressed("sprint"):
-		maxVel = 195
+		maxVel = baseMaxVel * (1 + sprint * 0.01)
 	else:
-		maxVel = 125
+		maxVel = baseMaxVel
 
 func _physics_process(delta: float) -> void:
+	
+	if is_on_floor():
+		state = STATE.WALK
+	elif !is_on_floor() and state != STATE.FLY:
+		state = STATE.FALLING
+	
+	#match state:
+		#STATE.FALLING:
+			#lastDirection.y = 1 
 	
 	if (is_on_floor() and direction.y > 0) or (is_on_ceiling() and direction.y < 0):
 		lastDirection.y = 0
@@ -54,7 +82,12 @@ func _physics_process(delta: float) -> void:
 	if (direction.x > 0 and get_wall_adjusment() < 0) or (direction.x < 0 and get_wall_adjusment() > 0):
 		lastDirection.x = 0
 	
-	velocity = lastDirection.normalized() * (accel*maxVel) * delta
+	if state == STATE.FLY:
+		velocity = lastDirection.normalized() * (accel*maxVel) * delta
+	else:
+		velocity.x = lastDirection.x * (accel*maxVel) * delta
+		velocity.y = lastDirection.y * gravity * delta
+		pass
 	move_and_slide()
 	move_and_collide(velocity)
 
