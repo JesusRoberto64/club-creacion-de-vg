@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://da7faqi32sxfm"]
+
+[ext_resource type="Script" path="res://Escenas/Practica_1/player.gd" id="1_7og3c"]
+[ext_resource type="Texture2D" uid="uid://5eaheip2q6bn" path="res://Recursos/Img/general/brick.png" id="1_tlftb"]
+
+[sub_resource type="Curve" id="Curve_je158"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ac4iy"]
+_data = [Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jf48"]
+size = Vector2(32, 32)
+
+[node name="main" type="Node2D"]
+
+[node name="player" type="Area2D" parent="."]
+position = Vector2(72, 64)
+script = ExtResource("1_7og3c")
+start_curve = SubResource("Curve_je158")
+end_curve = SubResource("Curve_ac4iy")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+texture = ExtResource("1_tlftb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+shape = SubResource("RectangleShape2D_0jf48")
+
+[node name="Node" type="Node" parent="player"]
+
+[node name="Label" type="Label" parent="player/Node"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Test"
