@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://dexnjvkw7vems"]
+[gd_scene load_steps=13 format=4 uid="uid://dexnjvkw7vems"]
 
+[ext_resource type="Script" path="res://Escenas/Juguete_1/main.gd" id="1_gpdua"]
 [ext_resource type="Script" path="res://Escenas/Juguete_1/player.gd" id="1_k0ywn"]
 [ext_resource type="Texture2D" uid="uid://b11p0maqdfxna" path="res://Recursos/Img/karel/floor2.png" id="1_xj2yi"]
-[ext_resource type="Texture2D" uid="uid://bd6dx6e5il6jt" path="res://Recursos/Img/karel/paint.png" id="2_1wkkg"]
-[ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="4_57750"]
+[ext_resource type="Texture2D" uid="uid://5eaheip2q6bn" path="res://Recursos/Img/general/brick.png" id="2_utdaw"]
+[ext_resource type="Texture2D" uid="uid://bf3rohvc2xssl" path="res://Recursos/Img/general/anim_map.png" id="4_58squ"]
+[ext_resource type="Texture2D" uid="uid://bk1wls07p2blm" path="res://Recursos/Img/general/SKY_180x320.png" id="5_ey4bn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8a72"]
 texture = ExtResource("1_xj2yi")
@@ -13,7 +15,7 @@ texture = ExtResource("1_xj2yi")
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gn41f"]
-texture = ExtResource("2_1wkkg")
+texture = ExtResource("2_utdaw")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, 8, -8, 8, 8)
 1:0/0 = 0
@@ -29,32 +31,51 @@ sources/0 = SubResource("TileSetAtlasSource_n8a72")
 sources/1 = SubResource("TileSetAtlasSource_gn41f")
 
 [sub_resource type="Curve" id="Curve_px5ei"]
-_data = [Vector2(0, 0.351648), 0.0, 0.0775695, 0, 0, Vector2(0.683333, 1), 0.863644, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.45098, 0, 0, Vector2(1, 1), 2.45409, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_m8e02"]
-_data = [Vector2(0, 0.472527), 0.0, -3.03768, 0, 1, Vector2(0.155556, 0), -3.03768, 0.0, 1, 0]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4thnc"]
 size = Vector2(16, 16)
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_gpdua")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAAAAAABAAoAAQAAAAAAAAACAAoAAQAAAAAAAAADAAoAAQAAAAAAAAAEAAoAAQAAAAAAAAAEAAkAAQAAAAAAAAAFAAkAAQAAAAAAAAAGAAkAAQAAAAAAAAAFAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAAAAAARAAoAAQAAAAAAAAASAAoAAQAAAAAAAAATAAoAAQAAAAAAAAATAAkAAQAAAAAAAAATAAgAAQAAAAAAAAATAAcAAQAAAAAAAAATAAYAAQAAAAAAAAATAAUAAQAAAAAAAAATAAQAAQAAAAAAAAATAAMAAQAAAAAAAAATAAIAAQAAAAAAAAATAAEAAQAAAAAAAAASAAAAAQAAAAAAAAARAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAATAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAMAAYAAQAAAAAAAAANAAYAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAAAAAABAAoAAQAAAAAAAAACAAoAAQAAAAAAAAADAAoAAQAAAAAAAAAEAAoAAQAAAAAAAAAEAAkAAQAAAAAAAAAFAAkAAQAAAAAAAAAGAAkAAQAAAAAAAAAFAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAAAAAARAAoAAQAAAAAAAAASAAoAAQAAAAAAAAATAAoAAQAAAAAAAAATAAkAAQAAAAAAAAATAAgAAQAAAAAAAAATAAcAAQAAAAAAAAATAAYAAQAAAAAAAAATAAUAAQAAAAAAAAATAAQAAQAAAAAAAAATAAMAAQAAAAAAAAATAAIAAQAAAAAAAAATAAEAAQAAAAAAAAASAAAAAQAAAAAAAAARAAAAAQAAAAAAAAAQAAAAAQAAAAAAAAAPAAAAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAATAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAMAAYAAQAAAAAAAAANAAYAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAAFAPf/AQAAAAAAAAAGAPf/AQAAAAAAAAAHAPf/AQAAAAAAAAAIAPf/AQAAAAAAAAAJAPf/AQAAAAAAAAAKAPf/AQAAAAAAAAAKAPj/AQAAAAAAAAALAPj/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_k6rgr")
 
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(104, 96)
 script = ExtResource("1_k0ywn")
-maxVel = 120.0
-sprint = 37.0
+maxVel = 160.0
 start_curve = SubResource("Curve_px5ei")
 end_curve = SubResource("Curve_m8e02")
 
-[node name="Sprite2D" type="Sprite2D" parent="player"]
-texture = ExtResource("4_57750")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 shape = SubResource("RectangleShape2D_4thnc")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+texture = ExtResource("4_58squ")
+hframes = 4
+vframes = 4
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_base_scale = Vector2(2, 2)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(320, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_ey4bn")
+centered = false
