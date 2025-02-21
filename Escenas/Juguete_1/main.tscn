@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dexnjvkw7vems"]
+[gd_scene load_steps=16 format=4 uid="uid://dexnjvkw7vems"]
 
 [ext_resource type="Script" path="res://Escenas/Juguete_1/main.gd" id="1_gpdua"]
 [ext_resource type="Script" path="res://Escenas/Juguete_1/player.gd" id="1_k0ywn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5eaheip2q6bn" path="res://Recursos/Img/general/brick.png" id="2_utdaw"]
 [ext_resource type="Texture2D" uid="uid://bf3rohvc2xssl" path="res://Recursos/Img/general/anim_map.png" id="4_58squ"]
 [ext_resource type="Texture2D" uid="uid://bk1wls07p2blm" path="res://Recursos/Img/general/SKY_180x320.png" id="5_ey4bn"]
+[ext_resource type="Script" path="res://Escenas/Juguete_1/velocityCurve.gd" id="5_xt0fv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8a72"]
 texture = ExtResource("1_xj2yi")
@@ -30,12 +31,20 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_n8a72")
 sources/1 = SubResource("TileSetAtlasSource_gn41f")
 
-[sub_resource type="Curve" id="Curve_px5ei"]
-_data = [Vector2(0, 0), 0.0, 0.45098, 0, 0, Vector2(1, 1), 2.45409, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_bnnei"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_m8e02"]
-_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+[sub_resource type="Curve" id="Curve_6fdae"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_cyomj"]
+_data = [Vector2(0.0198676, 0), 0.0, 0.456318, 0, 0, Vector2(1, 1), 1.48155, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tpsim"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4thnc"]
@@ -49,11 +58,23 @@ tile_map_data = PackedByteArray("AAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAAkAAQAAAAA
 tile_set = SubResource("TileSet_k6rgr")
 
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(104, 96)
+position = Vector2(80, -24)
 script = ExtResource("1_k0ywn")
-maxVel = 160.0
-start_curve = SubResource("Curve_px5ei")
-end_curve = SubResource("Curve_m8e02")
+metadata/_edit_group_ = true
+
+[node name="Walk" type="Node" parent="player"]
+script = ExtResource("5_xt0fv")
+attack_curve = SubResource("Curve_bnnei")
+releace_curve = SubResource("Curve_6fdae")
+attack_duration = 0.25
+releace_duration = 0.5
+
+[node name="Sprint" type="Node" parent="player"]
+script = ExtResource("5_xt0fv")
+attack_curve = SubResource("Curve_cyomj")
+releace_curve = SubResource("Curve_tpsim")
+attack_duration = 0.5
+releace_duration = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 shape = SubResource("RectangleShape2D_4thnc")
@@ -75,6 +96,8 @@ scroll_ignore_camera_zoom = true
 [node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(320, 180)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("5_ey4bn")
