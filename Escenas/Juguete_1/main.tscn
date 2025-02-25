@@ -31,11 +31,11 @@ sources/0 = SubResource("TileSetAtlasSource_n8a72")
 sources/1 = SubResource("TileSetAtlasSource_gn41f")
 
 [sub_resource type="Curve" id="Curve_px5ei"]
-_data = [Vector2(0, 0), 0.0, 0.45098, 0, 0, Vector2(1, 1), 2.45409, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 4.0, 0, 1, Vector2(0.25, 1), 4.0, 0.0, 1, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_m8e02"]
-_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+_data = [Vector2(0, 1), 0.0, -4.17266, 0, 1, Vector2(0.239655, 0), -0.00168344, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4thnc"]
