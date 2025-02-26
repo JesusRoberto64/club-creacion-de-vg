@@ -11,14 +11,14 @@ var lastDirection : Vector2 = Vector2.RIGHT
 
 #Gavity mode 
 var yVelocity = 0.0 #velocidad del personaje
-var gravity = 8.2 #Gravedad normal 
-var jumpGravity = 4.1 #Gravedad durante el salto
-var jumpForce = -150.0 #Fuerza inicial del salto
+var gravity = 15.0 #Gravedad normal 
+var jumpGravity = 6.1 #Gravedad durante el salto
+var jumpForce = -200.0 #Fuerza inicial del salto
 var downForce = 0.0 #Fuerza adicional del salto
 
 var baseMaxVel
 @export var maxVel = 130.0
-@export_range(0, 100, 0.1) var sprint : float = 35
+@export_range(0, 100, 0.1) var sprint : float = 25
 
 @export var start_curve : Curve = null
 @export var end_curve : Curve = null
@@ -62,10 +62,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_right"):
 		direction.x = 1
 		spr.scale.x = 1
+		
+		if lastDirection.x != direction.x and state != STATE.FLY:
+			curveValue = 0.0
+		 
 	if Input.is_action_pressed("ui_left"):
 		direction.x = -1
 		spr.scale.x = -1
 		
+		if lastDirection.x != direction.x and state != STATE.FLY:
+			curveValue = 0.0
+	
+	#Reset al cambiar la direccion
+	
+	
 	
 	#este es el sitema que se mueve en eje y 
 	if state == STATE.FLY:
@@ -111,6 +121,8 @@ func _physics_process(delta: float) -> void:
 			yVelocity = jumpForce - jump_impulse()
 		elif state == STATE.JUMPING:
 			yVelocity += jumpGravity
+		elif state == STATE.WALK:
+			yVelocity = 0.0
 		else:
 			yVelocity += gravity
 			yVelocity = clamp(yVelocity, 0.0, 1200)
@@ -125,13 +137,12 @@ func _physics_process(delta: float) -> void:
 		
 		#No pegarse al techo
 		if cielNormal == 1:
-			lastDirection.y = 0.0
-			pass
+			lastDirection.y = -1
 		
 		velocity.x = lastDirection.x * (accel*maxVel) * delta
 		velocity.y = lastDirection.y * yVelocity * delta
 		
-		var move = move_and_collide(velocity)
+		var move = move_and_collide(velocity, false, 0.08, true)
 		
 		if get_normal_coll(move).y == -1: #in the floor
 			canFly = true
@@ -144,11 +155,15 @@ func _physics_process(delta: float) -> void:
 					state = STATE.FALLING
 			else:
 				state = STATE.FALLING
+				
+				pass
 		
 		#Get normal wall
 		wallNormal = get_normal_coll(move).x
 		cielNormal = get_normal_coll(move).y
 		
+		#print(lastDirection)
+		#print(get_state())
 
 func get_normal_coll(collision_move: KinematicCollision2D) -> Vector2:
 	if collision_move != null:
