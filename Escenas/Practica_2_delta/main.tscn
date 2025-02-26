@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmpyn17hrvh7u"]
+
+[ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="1_0kwyo"]
+[ext_resource type="Script" path="res://Escenas/Practica_2_delta/main.gd" id="1_xesdg"]
+[ext_resource type="Texture2D" uid="uid://5eaheip2q6bn" path="res://Recursos/Img/general/brick.png" id="2_1jbdq"]
+[ext_resource type="Script" path="res://Escenas/Practica_2_delta/player.gd" id="3_b2wwx"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_xesdg")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(112, 88)
+texture = ExtResource("1_0kwyo")
+region_enabled = true
+region_rect = Rect2(8, 8, 16, 16)
+script = ExtResource("3_b2wwx")
+
+[node name="Timer" type="Label" parent="Player"]
+offset_left = 16.0
+offset_top = -32.0
+offset_right = 56.0
+offset_bottom = -9.0
+text = "0.00"
+
+[node name="Brick" type="Sprite2D" parent="."]
+position = Vector2(88, 16)
+texture = ExtResource("2_1jbdq")
+
+[node name="Brick2" type="Sprite2D" parent="."]
+modulate = Color(9.43363e-06, 0.975109, 0.905756, 1)
+position = Vector2(88, 48)
+texture = ExtResource("2_1jbdq")
+
+[node name="Brick3" type="Sprite2D" parent="."]
+modulate = Color(0.807491, 0.390711, 0.399052, 1)
+position = Vector2(88, 80)
+texture = ExtResource("2_1jbdq")
+
+[node name="Brick4" type="Sprite2D" parent="."]
+position = Vector2(88, 112)
+texture = ExtResource("2_1jbdq")
+
+[node name="Brick5" type="Sprite2D" parent="."]
+modulate = Color(9.43363e-06, 0.975109, 0.905756, 1)
+position = Vector2(88, 144)
+texture = ExtResource("2_1jbdq")
+
+[node name="Brick6" type="Sprite2D" parent="."]
+modulate = Color(0.807491, 0.390711, 0.399052, 1)
+position = Vector2(88, 176)
+texture = ExtResource("2_1jbdq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 31.0
+text = "FPS: 00"

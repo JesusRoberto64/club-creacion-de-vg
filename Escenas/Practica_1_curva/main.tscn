@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://da7faqi32sxfm"]
 
-[ext_resource type="Script" path="res://Escenas/Practica_1/player.gd" id="1_7og3c"]
+[ext_resource type="Script" path="res://Escenas/Practica_1_curva/player.gd" id="1_7og3c"]
 [ext_resource type="Texture2D" uid="uid://5eaheip2q6bn" path="res://Recursos/Img/general/brick.png" id="1_tlftb"]
 
 [sub_resource type="Curve" id="Curve_je158"]

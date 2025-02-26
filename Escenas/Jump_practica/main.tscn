@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdponnicceiuc"]
+
+[ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="1_qiia8"]
+[ext_resource type="Script" path="res://Escenas/Jump_practica/main.gd" id="1_seot6"]
+[ext_resource type="Texture2D" uid="uid://5eaheip2q6bn" path="res://Recursos/Img/general/brick.png" id="2_7u3y7"]
+[ext_resource type="Script" path="res://Escenas/Jump_practica/player.gd" id="3_2rbcu"]
+
+[sub_resource type="Curve" id="Curve_2tv8j"]
+_data = [Vector2(0, 0), 0.0, 2.60123, 0, 1, Vector2(0.384434, 1), 2.60123, 0.0, 1, 0]
+point_count = 2
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_seot6")
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(112, 72)
+texture = ExtResource("1_qiia8")
+region_enabled = true
+region_rect = Rect2(8, 8, 16, 16)
+script = ExtResource("3_2rbcu")
+gravity = 532.793
+gravity_fall = 635.031
+jump_force = 276.369
+jump = 90.298
+kirby_jump = true
+kirby_curve = SubResource("Curve_2tv8j")
+
+[node name="Timer" type="Label" parent="player"]
+offset_left = 8.0
+offset_top = -32.0
+offset_right = 48.0
+offset_bottom = -9.0
+
+[node name="Brick" type="Sprite2D" parent="."]
+position = Vector2(88, 16)
+texture = ExtResource("2_7u3y7")
+
+[node name="Brick2" type="Sprite2D" parent="."]
+modulate = Color(9.43363e-06, 0.975109, 0.905756, 1)
+position = Vector2(88, 48)
+texture = ExtResource("2_7u3y7")
+
+[node name="Brick3" type="Sprite2D" parent="."]
+modulate = Color(0.807491, 0.390711, 0.399052, 1)
+position = Vector2(88, 80)
+texture = ExtResource("2_7u3y7")
+
+[node name="Brick4" type="Sprite2D" parent="."]
+position = Vector2(88, 112)
+texture = ExtResource("2_7u3y7")
+
+[node name="Brick5" type="Sprite2D" parent="."]
+modulate = Color(9.43363e-06, 0.975109, 0.905756, 1)
+position = Vector2(88, 144)
+texture = ExtResource("2_7u3y7")
+
+[node name="Brick6" type="Sprite2D" parent="."]
+modulate = Color(0.807491, 0.390711, 0.399052, 1)
+position = Vector2(88, 176)
+texture = ExtResource("2_7u3y7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 31.0
+text = "FPS: 00"
