@@ -4,9 +4,9 @@ extends Node2D
 func _process(_delta: float) -> void:
 	$Label.text = "FPS: %02d" % [Engine.get_frames_per_second()]
 	
-	if Input.is_action_just_released("ui_left"):
+	if Input.is_key_pressed(KEY_Q):
 		Engine.max_fps -= 10
-	elif Input.is_action_just_released("ui_right"):
+	elif Input.is_key_pressed(KEY_E):
 		Engine.max_fps += 10
 	
 	Engine.max_fps = clamp(Engine.max_fps, 10, 60)

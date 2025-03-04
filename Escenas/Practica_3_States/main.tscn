@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=4 uid="uid://dss8avej31rin"]
+
+[ext_resource type="Script" path="res://Escenas/Practica_2_delta/main.gd" id="1_3ejvm"]
+[ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel/karel.png" id="1_jijmp"]
+[ext_resource type="Script" path="res://Escenas/Practica_3_States/player.gd" id="1_kbkr4"]
+[ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="2_umxvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm6ar"]
+size = Vector2(32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fsjs"]
+texture = ExtResource("2_umxvq")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_rc7k8"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2fsjs")
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_3ejvm")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(144, 16)
+script = ExtResource("1_kbkr4")
+metadata/_edit_group_ = true
+
+[node name="Karel" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_jijmp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_hm6ar")
+
+[node name="Timer" type="Label" parent="Player"]
+offset_left = 16.0
+offset_top = -32.0
+offset_right = 56.0
+offset_bottom = -9.0
+text = "0.00"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_rc7k8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 32.0
+offset_right = 88.0
+offset_bottom = 23.0
+text = "FPS"
