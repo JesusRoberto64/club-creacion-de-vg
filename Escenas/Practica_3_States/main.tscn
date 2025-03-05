@@ -43,8 +43,6 @@ script = ExtResource("1_20tms")
 position = Vector2(144, 16)
 slide_on_ceiling = false
 script = ExtResource("1_kbkr4")
-MAX_SPEED = 80.0
-SPRINT = 80.0
 metadata/_edit_group_ = true
 
 [node name="CurveMovement" type="Node" parent="Player"]
