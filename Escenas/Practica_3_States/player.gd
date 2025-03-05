@@ -1,23 +1,28 @@
 extends CharacterBody2D
 #PARA un viewport de 320*180, tamaño de sprite 32*32
+@export_range(0.0, 1000) var MAX_SPEED : float = 150.0
+@onready var mov_curve = $CurveMovement 
 
-var SPEED = 300.0
-var JUMP = 100.0*2
-var GRAVITY = 980*2
-var GRAVITY_FALL = 2000
-
-var JUMP_IMPULSE = 800*2
+@export_range(0.0,1000) var GRAVITY : float = 62.72
+@export_range(0.0,1000) var GRAVITY_FALL : float = 63
+@export_range(0.0,1000) var JUMP : float = 400.0
+@export_range(0.0,1000) var JUMP_IMPULSE : float = 48
 var can_impulse_jump = false
-
 var jump_timer = 0.0
+
+@export_range(0.0,1000) var SPRINT : float = 150.0
+@onready var sprint_curve = $CurveSprint
+var sprint_val = 0.0
+
+var current_direction = 1
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		#velocity += get_gravity() * delta
 		jump_timer += delta
 		$Timer.text = "%.4f" % jump_timer
 	else :
+		can_impulse_jump = false
 		jump_timer = 0.0
 	
 	# Handle jump.
@@ -29,29 +34,36 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_released("jump"):
 			can_impulse_jump = false
 		if Input.is_action_pressed("jump") and can_impulse_jump:
-			velocity.y -=  JUMP_IMPULSE * delta
+			velocity.y -=  JUMP_IMPULSE
 		
-		velocity.y += GRAVITY * delta
+		velocity.y += GRAVITY
 		
 	else:
-		velocity.y += GRAVITY_FALL * delta
+		velocity.y += GRAVITY_FALL
 		
 	
+	var direction : float = Input.get_axis("ui_left", "ui_right")
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	if direction != 0.0:
+		if current_direction != direction:
+			mov_curve.reset()
+			sprint_curve.reset()
+		
+		current_direction = direction
+		mov_curve.set_attack_sample(delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		mov_curve.set_releace_sample(delta)
 	
-	print(velocity)
+	
+	#Sprint
+	if Input.is_action_pressed("sprint") and direction:
+		sprint_curve.set_attack_sample(delta)
+	else:
+		sprint_curve.set_releace_sample(delta)
+	
+	
+	
+	velocity.x = current_direction * ((MAX_SPEED*mov_curve.sample_value) + (SPRINT*sprint_curve.sample_value))
+	
 	
 	move_and_slide()
-
-func flying():
-	pass
-
-func walking():
-	pass
