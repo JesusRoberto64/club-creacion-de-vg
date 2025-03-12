@@ -1,0 +1,199 @@
+[gd_scene load_steps=4 format=3 uid="uid://lfbe0y63aya"]
+
+[ext_resource type="Texture2D" uid="uid://ddipe3vsy58ov" path="res://Recursos/Img/karel/floor.png" id="1_p6ebn"]
+[ext_resource type="Script" path="res://Escenas/Jueguete_2_Yellow_Demon/demon.gd" id="1_qyy7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bic0y"]
+size = Vector2(16, 16)
+
+[node name="Demon" type="Node2D"]
+script = ExtResource("1_qyy7i")
+
+[node name="Parts" type="Node2D" parent="."]
+
+[node name="Shape" type="CharacterBody2D" parent="Parts"]
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape2" type="CharacterBody2D" parent="Parts"]
+position = Vector2(0, 16)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape2"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape2"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape3" type="CharacterBody2D" parent="Parts"]
+position = Vector2(0, 32)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape3"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape3"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape4" type="CharacterBody2D" parent="Parts"]
+position = Vector2(0, 48)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape4"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape4"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape5" type="CharacterBody2D" parent="Parts"]
+position = Vector2(-16, 0)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape5"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape5"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape6" type="CharacterBody2D" parent="Parts"]
+position = Vector2(-16, 16)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape6"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape6"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape7" type="CharacterBody2D" parent="Parts"]
+position = Vector2(-16, 32)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape7"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape7"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape8" type="CharacterBody2D" parent="Parts"]
+position = Vector2(-16, 48)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape8"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape8"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape9" type="CharacterBody2D" parent="Parts"]
+position = Vector2(-16, 64)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape9"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape9"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape10" type="CharacterBody2D" parent="Parts"]
+position = Vector2(-16, 80)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape10"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape10"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape11" type="CharacterBody2D" parent="Parts"]
+position = Vector2(0, 80)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape11"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape11"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="Shape12" type="CharacterBody2D" parent="Parts"]
+position = Vector2(0, 64)
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+metadata/_edit_group_ = true
+
+[node name="Floor" type="Sprite2D" parent="Parts/Shape12"]
+position = Vector2(2.38419e-07, -1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p6ebn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parts/Shape12"]
+shape = SubResource("RectangleShape2D_bic0y")
+
+[node name="GlobalTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="PartsTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="GlobalTimer" to="." method="_on_global_timer_timeout"]
+[connection signal="timeout" from="PartsTimer" to="." method="_on_parts_timer_timeout"]

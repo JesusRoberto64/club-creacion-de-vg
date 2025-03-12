@@ -53,6 +53,8 @@ func _physics_process(delta: float) -> void:
 		update_ui(delta)
 	else:
 		jump_hold_timer = 0.0
+	
+	$Karel.scale.x = current_direction
 
 # ===== Funciones Modularizadas =====
 func handle_jump_impulse() -> void:
