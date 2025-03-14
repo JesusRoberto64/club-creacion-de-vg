@@ -4,7 +4,7 @@ var Parts : Array = []
 
 var current_part = 0
 var is_moving_part = false
-var speed = 150
+var speed = 250
 var direction = -1
 var counter = 0
 
@@ -12,7 +12,7 @@ func _ready() -> void:
 	Parts =  $Parts.get_children()
 	$GlobalTimer.start()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_moving_part:
 		Parts[current_part].velocity.x = speed * direction
 		Parts[current_part].move_and_slide()
@@ -35,4 +35,3 @@ func _on_parts_timer_timeout() -> void:
 		direction *= -1
 		counter = 0
 		Parts.shuffle()
-	pass # Replace with function body.

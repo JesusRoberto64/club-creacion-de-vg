@@ -191,9 +191,11 @@ texture = ExtResource("1_p6ebn")
 shape = SubResource("RectangleShape2D_bic0y")
 
 [node name="GlobalTimer" type="Timer" parent="."]
-wait_time = 0.2
+process_callback = 0
 
 [node name="PartsTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
 
 [connection signal="timeout" from="GlobalTimer" to="." method="_on_global_timer_timeout"]
 [connection signal="timeout" from="PartsTimer" to="." method="_on_parts_timer_timeout"]

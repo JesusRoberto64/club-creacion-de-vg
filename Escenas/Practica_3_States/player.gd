@@ -28,6 +28,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity
 	
+	if get_platform_velocity().length() > 0.0:
+		$Karel.offset.y = get_platform_velocity().y * delta -0.5
+		#velocity.y = get_platform_velocity().y * delta
+		print(get_platform_velocity(), " character")
+		pass
+	
 	#handle_jump_input()
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_force
