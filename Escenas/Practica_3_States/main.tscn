@@ -47,7 +47,7 @@ size = Vector2(72, 8)
 script = ExtResource("1_20tms")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(144, 16)
+position = Vector2(136, 44)
 collision_layer = 3
 collision_mask = 3
 slide_on_ceiling = false
@@ -65,9 +65,11 @@ attack_curve = SubResource("Curve_mkx1y")
 releace_curve = SubResource("Curve_t7wmk")
 
 [node name="Karel" type="Sprite2D" parent="Player"]
+position = Vector2(0, -16)
 texture = ExtResource("1_jijmp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_hm6ar")
 
 [node name="Timer" type="Label" parent="Player"]
@@ -110,20 +112,19 @@ centered = false
 [node name="Demon" parent="." instance=ExtResource("7_lsa5x")]
 position = Vector2(728, 40)
 
-[node name="MovePlatform" type="CharacterBody2D" parent="."]
+[node name="MovePlatform" type="AnimatableBody2D" parent="."]
 position = Vector2(212, 20)
 collision_layer = 2
 collision_mask = 0
-motion_mode = 1
 script = ExtResource("8_ucsh5")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="MovePlatform"]
-position = Vector2(20, -4)
+position = Vector2(0, 4)
 scale = Vector2(2.25, 0.25)
 texture = ExtResource("8_x156q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovePlatform"]
-position = Vector2(20, -4)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_f00mn")
 one_way_collision = true

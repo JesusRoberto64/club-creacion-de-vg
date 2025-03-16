@@ -29,9 +29,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity
 	
 	if get_platform_velocity().length() > 0.0:
-		$Karel.offset.y = get_platform_velocity().y * delta -0.5
+		#$Karel.offset.y = get_platform_velocity().y * delta
 		#velocity.y = get_platform_velocity().y * delta
-		print(get_platform_velocity(), " character")
+		#print(get_platform_velocity(), " character")
 		pass
 	
 	#handle_jump_input()
