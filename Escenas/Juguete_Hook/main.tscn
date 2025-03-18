@@ -1,0 +1,213 @@
+[gd_scene load_steps=11 format=4 uid="uid://c46l0e1fvgpg7"]
+
+[ext_resource type="Script" path="res://Escenas/Juguete_Hook/player.gd" id="1_rp2ax"]
+[ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel/karel.png" id="2_oa4tj"]
+[ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="3_50l74"]
+[ext_resource type="Script" path="res://Escenas/Juguete_Hook/hook.gd" id="3_a6xxn"]
+[ext_resource type="Texture2D" uid="uid://bk1wls07p2blm" path="res://Recursos/Img/general/SKY_180x320.png" id="4_noo1h"]
+[ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="5_ojcq8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdbff"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yva5g"]
+size = Vector2(16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_javmn"]
+texture = ExtResource("3_50l74")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_mcvoe"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_javmn")
+
+[node name="main" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(104, 48)
+script = ExtResource("1_rp2ax")
+metadata/_edit_group_ = true
+
+[node name="Hook" type="RayCast2D" parent="Player"]
+position = Vector2(0, -8)
+enabled = false
+target_position = Vector2(0, 0)
+collision_mask = 4
+script = ExtResource("3_a6xxn")
+
+[node name="Line2D" type="Line2D" parent="Player/Hook"]
+points = PackedVector2Array(32, -8, 0, 0)
+width = 3.0
+default_color = Color(0.0588235, 0.243137, 0.45098, 1)
+texture_mode = 1
+
+[node name="Karel" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_oa4tj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_mdbff")
+debug_color = Color(0.472426, 0.194703, 0.201427, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="AnchorPoint" type="Area2D" parent="."]
+position = Vector2(272, 64)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint5" type="Area2D" parent="."]
+position = Vector2(192, 16)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint5"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint5"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint2" type="Area2D" parent="."]
+position = Vector2(336, -72)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint2"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint2"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint3" type="Area2D" parent="."]
+position = Vector2(360, 24)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint3"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint3"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint4" type="Area2D" parent="."]
+position = Vector2(504, -56)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint4"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint4"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint6" type="Area2D" parent="."]
+position = Vector2(280, -128)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint6"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint6"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint7" type="Area2D" parent="."]
+position = Vector2(200, -176)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint7"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint7"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint8" type="Area2D" parent="."]
+position = Vector2(344, -264)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint8"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint8"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint9" type="Area2D" parent="."]
+position = Vector2(368, -168)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint9"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint9"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="AnchorPoint10" type="Area2D" parent="."]
+position = Vector2(512, -248)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="Orb" type="Sprite2D" parent="AnchorPoint10"]
+texture = ExtResource("5_ojcq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint10"]
+shape = SubResource("RectangleShape2D_yva5g")
+debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAAAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAAWAAQAAAAAAAAAAAAXAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAZAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAATAAUAAAAAAAAAAAAUAAUAAAAAAAAAAAAVAAUAAAAAAAAAAAATAP7/AAAAAAAAAAAUAP7/AAAAAAAAAAAUAP//AAAAAAAAAAATAP//AAAAAAAAAAAVAP7/AAAAAAAAAAAVAP//AAAAAAAAAAAUAAAAAAAAAAAAAAACAPj/AAAAAAAAAAADAPj/AAAAAAAAAAAEAPj/AAAAAAAAAAADAPn/AAAAAAAAAAASAPj/AAAAAAAAAAATAPj/AAAAAAAAAAAUAPj/AAAAAAAAAAATAPn/AAAAAAAAAAATAPf/AAAAAAAAAAAUAPf/AAAAAAAAAAAUAPb/AAAAAAAAAAAVAPb/AAAAAAAAAAAVAPf/AAAAAAAAAAAVAPj/AAAAAAAAAAASAPf/AAAAAAAAAAACAPn/AAAAAAAAAAAGAPX/AAAAAAAAAAAHAPX/AAAAAAAAAAAIAPX/AAAAAAAAAAALAPX/AAAAAAAAAAAMAPX/AAAAAAAAAAANAPX/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_mcvoe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 31.0
+text = "FPS:00"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_base_scale = Vector2(2, 2)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(320, 180)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("4_noo1h")
+centered = false
+
+[connection signal="hooked" from="Player/Hook" to="Player" method="_on_hook_hooked"]

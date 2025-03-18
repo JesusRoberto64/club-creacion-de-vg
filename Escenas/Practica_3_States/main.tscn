@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dss8avej31rin"]
+[gd_scene load_steps=16 format=4 uid="uid://dss8avej31rin"]
 
 [ext_resource type="Script" path="res://Escenas/Practica_3_States/main.gd" id="1_20tms"]
 [ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel/karel.png" id="1_jijmp"]
@@ -7,8 +7,7 @@
 [ext_resource type="Script" path="res://Escenas/Practica_3_States/curves.gd" id="3_mmt47"]
 [ext_resource type="Texture2D" uid="uid://bk1wls07p2blm" path="res://Recursos/Img/general/SKY_180x320.png" id="6_urai2"]
 [ext_resource type="PackedScene" uid="uid://lfbe0y63aya" path="res://Escenas/Jueguete_2_Yellow_Demon/demon.tscn" id="7_lsa5x"]
-[ext_resource type="Script" path="res://Escenas/Practica_3_States/move_platform.gd" id="8_ucsh5"]
-[ext_resource type="Texture2D" uid="uid://b11p0maqdfxna" path="res://Recursos/Img/karel/floor2.png" id="8_x156q"]
+[ext_resource type="PackedScene" uid="uid://c64r4tb1ijfkw" path="res://Escenas/Miscelanea/move_platform.tscn" id="8_n8d41"]
 
 [sub_resource type="Curve" id="Curve_5cwfm"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.293651, 1), 0.0, 0.0, 0, 0]
@@ -29,7 +28,7 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm6ar"]
 size = Vector2(32, 32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fsjs"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m55vm"]
 texture = ExtResource("2_umxvq")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -38,10 +37,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_rc7k8"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2fsjs")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f00mn"]
-size = Vector2(72, 8)
+sources/0 = SubResource("TileSetAtlasSource_m55vm")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_20tms")
@@ -88,6 +84,11 @@ limit_bottom = 180
 tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAAAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAAWAAQAAAAAAAAAAAAXAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAZAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAATAAUAAAAAAAAAAAAUAAUAAAAAAAAAAAAVAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_rc7k8")
 
+[node name="Demon" parent="." instance=ExtResource("7_lsa5x")]
+position = Vector2(728, 40)
+
+[node name="MovePlatform" parent="." instance=ExtResource("8_n8d41")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
@@ -108,23 +109,3 @@ motion_mirroring = Vector2(320, 180)
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("6_urai2")
 centered = false
-
-[node name="Demon" parent="." instance=ExtResource("7_lsa5x")]
-position = Vector2(728, 40)
-
-[node name="MovePlatform" type="AnimatableBody2D" parent="."]
-position = Vector2(212, 20)
-collision_layer = 2
-collision_mask = 0
-script = ExtResource("8_ucsh5")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="MovePlatform"]
-position = Vector2(0, 4)
-scale = Vector2(2.25, 0.25)
-texture = ExtResource("8_x156q")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovePlatform"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_f00mn")
-one_way_collision = true
