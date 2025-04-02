@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel/karel.png" id="2_oa4tj"]
 [ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="3_50l74"]
 [ext_resource type="Script" path="res://Escenas/Juguete_Hook/hook.gd" id="3_a6xxn"]
-[ext_resource type="Texture2D" uid="uid://bk1wls07p2blm" path="res://Recursos/Img/general/SKY_180x320.png" id="4_noo1h"]
 [ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="5_ojcq8"]
+[ext_resource type="Texture2D" uid="uid://dlcp34i5y7e7y" path="res://Recursos/Img/general/SCREEN_180x320.png" id="6_clec3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdbff"]
 size = Vector2(32, 32)
@@ -207,7 +207,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("4_noo1h")
+texture = ExtResource("6_clec3")
 centered = false
 
 [connection signal="hooked" from="Player/Hook" to="Player" method="_on_hook_hooked"]
