@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://c46l0e1fvgpg7"]
+[gd_scene load_steps=9 format=3 uid="uid://c46l0e1fvgpg7"]
 
 [ext_resource type="Script" path="res://Escenas/Juguete_Hook/player.gd" id="1_rp2ax"]
 [ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel/karel.png" id="2_oa4tj"]
-[ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="3_50l74"]
 [ext_resource type="Script" path="res://Escenas/Juguete_Hook/hook.gd" id="3_a6xxn"]
 [ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="5_ojcq8"]
+[ext_resource type="PackedScene" uid="uid://dbhcl6xfhcupi" path="res://Escenas/Miscelanea/basic_wall.tscn" id="5_rvcjq"]
 [ext_resource type="Texture2D" uid="uid://dlcp34i5y7e7y" path="res://Recursos/Img/general/SCREEN_180x320.png" id="6_clec3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdbff"]
@@ -12,17 +12,6 @@ size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yva5g"]
 size = Vector2(16, 16)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_javmn"]
-texture = ExtResource("3_50l74")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
-[sub_resource type="TileSet" id="TileSet_mcvoe"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_javmn")
 
 [node name="main" type="Node2D"]
 
@@ -183,9 +172,7 @@ texture = ExtResource("5_ojcq8")
 shape = SubResource("RectangleShape2D_yva5g")
 debug_color = Color(0.785174, 0.352559, 0.65179, 0.42)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAAAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAAWAAQAAAAAAAAAAAAXAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAZAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAATAAUAAAAAAAAAAAAUAAUAAAAAAAAAAAAVAAUAAAAAAAAAAAATAP7/AAAAAAAAAAAUAP7/AAAAAAAAAAAUAP//AAAAAAAAAAATAP//AAAAAAAAAAAVAP7/AAAAAAAAAAAVAP//AAAAAAAAAAAUAAAAAAAAAAAAAAACAPj/AAAAAAAAAAADAPj/AAAAAAAAAAAEAPj/AAAAAAAAAAADAPn/AAAAAAAAAAASAPj/AAAAAAAAAAATAPj/AAAAAAAAAAAUAPj/AAAAAAAAAAATAPn/AAAAAAAAAAATAPf/AAAAAAAAAAAUAPf/AAAAAAAAAAAUAPb/AAAAAAAAAAAVAPb/AAAAAAAAAAAVAPf/AAAAAAAAAAAVAPj/AAAAAAAAAAASAPf/AAAAAAAAAAACAPn/AAAAAAAAAAAGAPX/AAAAAAAAAAAHAPX/AAAAAAAAAAAIAPX/AAAAAAAAAAALAPX/AAAAAAAAAAAMAPX/AAAAAAAAAAANAPX/AAAAAAAAAAA=")
-tile_set = SubResource("TileSet_mcvoe")
+[node name="BasicWall" parent="." instance=ExtResource("5_rvcjq")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=4 uid="uid://c7gd0tisfd5kl"]
+
+[ext_resource type="Script" path="res://Escenas/Juguete_Balas/main.gd" id="1_5svet"]
+[ext_resource type="Script" path="res://Escenas/Juguete_Balas/player.gd" id="1_62pdo"]
+[ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="2_i7tlk"]
+[ext_resource type="Texture2D" uid="uid://bk1wls07p2blm" path="res://Recursos/Img/general/SKY_180x320.png" id="3_orq8b"]
+[ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="4_b2257"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dohdj"]
+size = Vector2(16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yc7ob"]
+texture = ExtResource("4_b2257")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_ao48d"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_yc7ob")
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_5svet")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_62pdo")
+max_bullets = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_i7tlk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_dohdj")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FPS" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 31.0
+text = "FPS:00"
+
+[node name="Bullets" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 55.0
+text = "Bullets: "
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_mirroring = Vector2(320, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("3_orq8b")
+centered = false
+
+[node name="BasicWall" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAATAP7/AAAAAAAAAAAUAP7/AAAAAAAAAAAUAP//AAAAAAAAAAATAP//AAAAAAAAAAAVAP7/AAAAAAAAAAAVAP//AAAAAAAAAAAUAAAAAAAAAAAAAAASAPj/AAAAAAAAAAATAPj/AAAAAAAAAAAUAPj/AAAAAAAAAAATAPn/AAAAAAAAAAATAPf/AAAAAAAAAAAUAPf/AAAAAAAAAAAUAPb/AAAAAAAAAAAVAPb/AAAAAAAAAAAVAPf/AAAAAAAAAAAVAPj/AAAAAAAAAAASAPf/AAAAAAAAAAAGAPX/AAAAAAAAAAAHAPX/AAAAAAAAAAAIAPX/AAAAAAAAAAALAPX/AAAAAAAAAAAMAPX/AAAAAAAAAAANAPX/AAAAAAAAAAD7//v/AAAAAAAAAAD7//r/AAAAAAAAAAD9//z/AAAAAAAAAAD8//z/AAAAAAAAAAD7//z/AAAAAAAAAAD8//v/AAAAAAAAAAD8//r/AAAAAAAAAAD9//r/AAAAAAAAAAD9//v/AAAAAAAAAAD5/wIAAAAAAAAAAAD6/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD7/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD5/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD6/wMAAAAAAAAAAAD8/wQAAAAAAAAAAAAHAP7/AAAAAAAAAAAHAP3/AAAAAAAAAAAHAPz/AAAAAAAAAAAIAPz/AAAAAAAAAAAJAPz/AAAAAAAAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP//AAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAHAP//AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ao48d")
+
+[connection signal="add_bullets" from="Player" to="." method="add_bullets"]

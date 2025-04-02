@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkaj1e47yji7h"]
+
+[ext_resource type="Texture2D" uid="uid://bf3rohvc2xssl" path="res://Recursos/Img/general/anim_map.png" id="1_2bklr"]
+[ext_resource type="Script" path="res://Escenas/Juguete_Balas/bullet.gd" id="1_ewjas"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88j04"]
+radius = 5.0
+
+[node name="Bullet" type="Area2D" groups=["bullet"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ewjas")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2bklr")
+region_enabled = true
+region_rect = Rect2(3, 19, 10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_88j04")
+
+[node name="Trace" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Trace"]
+z_index = -100
+width = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
