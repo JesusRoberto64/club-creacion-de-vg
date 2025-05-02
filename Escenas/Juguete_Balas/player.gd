@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#Al rededor
 	if Input.is_action_just_pressed("attack_1"):
 		var interval = (2.0*PI) / max_bullets

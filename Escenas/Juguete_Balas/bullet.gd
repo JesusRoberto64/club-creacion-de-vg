@@ -26,6 +26,6 @@ func connect_life(_owner):
 		connect("sub_bullet", _owner.sub_bullet)
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	sub_bullet.emit()
 	queue_free()

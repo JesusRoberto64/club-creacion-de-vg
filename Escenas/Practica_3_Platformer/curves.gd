@@ -20,7 +20,7 @@ func set_releace_sample(delta) -> void:
 
 func reset()-> void:
 	curve_time_value = 0.0
-	#sample_value = 0.0
+	sample_value = 0.0
 
 func get_value()-> float:
 	return sample_value

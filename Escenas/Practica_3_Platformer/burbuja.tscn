@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://q8dkybhbf752"]
+
+[ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/burbuja.gd" id="1_nvljt"]
+[ext_resource type="Texture2D" uid="uid://bf3rohvc2xssl" path="res://Recursos/Img/general/anim_map.png" id="1_wfreh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdu8y"]
+radius = 13.0
+
+[node name="Burbuja" type="AnimatableBody2D" groups=["Burbuja"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_nvljt")
+metadata/_edit_group_ = true
+
+[node name="AnimMap" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_wfreh")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qdu8y")

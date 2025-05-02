@@ -18,11 +18,10 @@ texture = ExtResource("1_qiia8")
 region_enabled = true
 region_rect = Rect2(8, 8, 16, 16)
 script = ExtResource("3_2rbcu")
-gravity = 532.793
-gravity_fall = 635.031
-jump_force = 276.369
-jump = 90.298
-kirby_jump = true
+gravity = 500.0
+gravity_fall = 700.0
+jump_force = 230.0
+jump = 200.0
 kirby_curve = SubResource("Curve_2tv8j")
 
 [node name="Timer" type="Label" parent="player"]
