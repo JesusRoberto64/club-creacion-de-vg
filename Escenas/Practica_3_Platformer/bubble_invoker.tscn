@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://fc703agn1vr6"]
+
+[ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/bubble_invoker.gd" id="1_ajqjh"]
+
+[node name="Bubble_Invoker" type="Node2D"]
+script = ExtResource("1_ajqjh")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(160, 0, 0, 0)
+width = 2.5
+default_color = Color(0.525826, 0.599765, 0.964566, 1)

@@ -28,6 +28,12 @@ var jump_hold_timer: float = 0.0
 var is_hited = false
 var hit_direction: Vector2 = Vector2.ZERO
 
+# Comobo lógica
+var combo : int = 0
+@onready var combo_lab : Label = $Combo
+@onready var combo_anim: AnimationPlayer = $Combo/AnimationPlayer
+signal change_combo(_combo)
+
 func _physics_process(delta: float) -> void:
 	#Handle_gravity
 	var gravity = base_gravity if velocity.y < 0 else fall_gravity
@@ -43,6 +49,9 @@ func _physics_process(delta: float) -> void:
 	handle_jump_impulse()
 	
 	# Golpe de salto
+	
+	var was_combo : bool = false
+	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
@@ -52,8 +61,14 @@ func _physics_process(delta: float) -> void:
 				velocity.y = -jump_force
 				can_impulse_jump = true
 				jump_hold_timer = 0.0
+				set_combo()
+				was_combo = true
+				break
 			elif collision.get_normal().x != 0.0:
 				hit_impulse(collision.get_normal())
+	
+	if !was_combo and is_on_floor():
+		combo = 0
 	
 	# handle movement input
 	var mov : float = Input.get_axis("ui_left", "ui_right")
@@ -114,3 +129,9 @@ func reset_curves() -> void:
 func update_ui(delta: float) -> void:
 	jump_hold_timer += delta
 	ui_timer.text = "%.4f" % jump_hold_timer
+
+func set_combo() -> void:
+	combo += 1
+	combo_lab.text = "X " + str(combo)
+	combo_anim.play("combo_out")
+	change_combo.emit(combo)

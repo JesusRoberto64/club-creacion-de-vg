@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckcydfpcy410k"]
+[gd_scene load_steps=12 format=3 uid="uid://ckcydfpcy410k"]
 
 [ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/player.gd" id="1_eimex"]
 [ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/curves.gd" id="2_rflgt"]
@@ -23,8 +23,87 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm6ar"]
 size = Vector2(32, 32)
 
+[sub_resource type="Animation" id="Animation_7c4fp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-40, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ua37c"]
+resource_name = "combo_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-31.8821, -0.25, 0, 0.25, 0, -40, -0.25, 0, 0.25, 0, -40, -0.25, 0, 0.25, 0, -31.8821, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wsss"]
+_data = {
+"RESET": SubResource("Animation_7c4fp"),
+"combo_out": SubResource("Animation_ua37c")
+}
+
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(136, 44)
 collision_layer = 3
 collision_mask = 3
 slide_on_ceiling = false
@@ -55,6 +134,19 @@ texture = ExtResource("3_xq5v3")
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_hm6ar")
 
+[node name="Combo" type="Label" parent="."]
+visible = false
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 23.0
+offset_bottom = -17.0
+text = "X 0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Combo"]
+libraries = {
+"": SubResource("AnimationLibrary_4wsss")
+}
+
 [node name="Timer" type="Label" parent="."]
 offset_left = 16.0
 offset_top = -32.0
@@ -64,5 +156,5 @@ text = "0.00"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
-limit_top = -500
+limit_top = -25
 limit_bottom = 180

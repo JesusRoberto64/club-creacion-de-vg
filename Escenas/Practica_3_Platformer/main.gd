@@ -1,5 +1,10 @@
 extends Node2D
 
+var max_combo = 0
+
+func _ready() -> void:
+	$Player.connect("change_combo", change_combo)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	$CanvasLayer/Label2.text = "FPS: %02d" % [Engine.get_frames_per_second()]
@@ -15,3 +20,10 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+
+func change_combo(combo)-> void:
+	if combo > max_combo:
+		max_combo = combo
+		$CanvasLayer/maxCombo.text = "Max Combo: " + str(max_combo)
+	
+	pass
