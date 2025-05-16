@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cshop43vbxlik"]
+
+[ext_resource type="Texture2D" uid="uid://bk1wls07p2blm" path="res://Recursos/Img/general/SKY_180x320.png" id="1_5emxo"]
+
+[node name="CanvasLevel" type="CanvasLayer"]
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 31.0
+text = "FPS:00"
+
+[node name="maxCombo" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 55.0
+text = "Max Combo:"
+
+[node name="Nivel" type="Label" parent="."]
+offset_right = 320.0
+offset_bottom = 23.0
+text = "Nivel 1"
+horizontal_alignment = 1
+
+[node name="Completado" type="Label" parent="."]
+visible = false
+offset_top = 60.0
+offset_right = 316.0
+offset_bottom = 83.0
+text = "¡Completado!"
+horizontal_alignment = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(2, 2)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(320, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_5emxo")
+centered = false
+metadata/_edit_lock_ = true

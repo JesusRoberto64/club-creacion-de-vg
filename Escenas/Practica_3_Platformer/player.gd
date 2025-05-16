@@ -34,7 +34,12 @@ var combo : int = 0
 @onready var combo_anim: AnimationPlayer = $Combo/AnimationPlayer
 signal change_combo(_combo)
 
+#STATE LOGIC
+var stop_sate = false
+
 func _physics_process(delta: float) -> void:
+	if stop_sate: return
+	
 	#Handle_gravity
 	var gravity = base_gravity if velocity.y < 0 else fall_gravity
 	if not is_on_floor():

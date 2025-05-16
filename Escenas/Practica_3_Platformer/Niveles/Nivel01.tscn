@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=4 uid="uid://d4dakr4cj6xlc"]
+
+[ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/main.gd" id="1_y2w0q"]
+[ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="2_ih6mp"]
+[ext_resource type="PackedScene" uid="uid://ckcydfpcy410k" path="res://Escenas/Practica_3_Platformer/player.tscn" id="2_qb004"]
+[ext_resource type="PackedScene" uid="uid://cshop43vbxlik" path="res://Escenas/Practica_3_Platformer/Utils/canvas_level.tscn" id="4_7ircp"]
+[ext_resource type="PackedScene" uid="uid://5gcc7skxn2kl" path="res://Escenas/Practica_3_Platformer/end_button.tscn" id="5_a7u7p"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eiqip"]
+texture = ExtResource("2_ih6mp")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_urbr3"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_eiqip")
+
+[node name="Nivel01" type="Node2D"]
+script = ExtResource("1_y2w0q")
+
+[node name="Player" parent="." instance=ExtResource("2_qb004")]
+position = Vector2(88, 104)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAALAAQAAAAAAAAAAAALAAMAAAAAAAAAAAALAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_urbr3")
+
+[node name="CanvasLevel" parent="." instance=ExtResource("4_7ircp")]
+
+[node name="EndButton" parent="." instance=ExtResource("5_a7u7p")]
+position = Vector2(296, 144)

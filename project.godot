@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="Club Creacion de VG"
-run/main_scene="res://Escenas/Practica_3_Platformer/main.tscn"
+run/main_scene="res://Escenas/Practica_3_Platformer/Niveles/Nivel01.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
 config/icon="res://icon.svg"
+
+[autoload]
+
+Singleton="*res://Escenas/Practica_3_Platformer/Utils/singleton.gd"
 
 [display]
 

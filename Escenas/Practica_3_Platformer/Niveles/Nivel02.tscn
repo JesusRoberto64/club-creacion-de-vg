@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=4 uid="uid://bxn5hbvm85mom"]
+
+[ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/main.gd" id="1_wgl6f"]
+[ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="2_m0plw"]
+[ext_resource type="PackedScene" uid="uid://ckcydfpcy410k" path="res://Escenas/Practica_3_Platformer/player.tscn" id="2_niq32"]
+[ext_resource type="PackedScene" uid="uid://cshop43vbxlik" path="res://Escenas/Practica_3_Platformer/Utils/canvas_level.tscn" id="4_evyau"]
+[ext_resource type="PackedScene" uid="uid://5gcc7skxn2kl" path="res://Escenas/Practica_3_Platformer/end_button.tscn" id="5_umcm7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2hfau"]
+texture = ExtResource("2_m0plw")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_vijer"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2hfau")
+
+[node name="Nivel02" type="Node2D"]
+script = ExtResource("1_wgl6f")
+
+[node name="Player" parent="." instance=ExtResource("2_niq32")]
+position = Vector2(120, 64)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAARAAgAAAAAAAAAAAASAAgAAAAAAAAAAAATAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAATAAcAAAAAAAAAAAASAAYAAAAAAAAAAAASAAUAAAAAAAAAAAARAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAOAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAADAAMAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAIAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAAKAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_vijer")
+
+[node name="CanvasLevel" parent="." instance=ExtResource("4_evyau")]
+
+[node name="EndButton" parent="." instance=ExtResource("5_umcm7")]
+position = Vector2(336, 16)

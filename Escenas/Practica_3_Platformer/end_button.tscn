@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://5gcc7skxn2kl"]
+
+[ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/end_button.gd" id="1_7mkl1"]
+[ext_resource type="Texture2D" uid="uid://cqelcvuinjwss" path="res://Recursos/Img/general/btn.png" id="1_sj8jd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyxr0"]
+size = Vector2(21, 30)
+
+[node name="EndButton" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_7mkl1")
+
+[node name="Btn" type="Sprite2D" parent="."]
+texture = ExtResource("1_sj8jd")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_vyxr0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
