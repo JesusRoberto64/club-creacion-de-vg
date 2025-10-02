@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://dss8avej31rin"]
 
-[ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/main.gd" id="1_20tms"]
+[ext_resource type="Script" uid="uid://dqw1hk1ey1vgh" path="res://Escenas/Practica_3_Platformer/main.gd" id="1_20tms"]
 [ext_resource type="PackedScene" uid="uid://ckcydfpcy410k" path="res://Escenas/Practica_3_Platformer/player.tscn" id="2_8ibi0"]
 [ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="2_umxvq"]
 [ext_resource type="PackedScene" uid="uid://q8dkybhbf752" path="res://Escenas/Practica_3_Platformer/burbuja.tscn" id="3_jbpsg"]
@@ -24,7 +24,6 @@ script = ExtResource("1_20tms")
 
 [node name="Player" parent="." instance=ExtResource("2_8ibi0")]
 position = Vector2(92, 128)
-fall_gravity = 48.0
 
 [node name="Burbuja" parent="." instance=ExtResource("3_jbpsg")]
 position = Vector2(208, 52)

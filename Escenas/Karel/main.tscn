@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://62riegb85mxg"]
 
-[ext_resource type="Script" path="res://Escenas/Karel/overlord.gd" id="1_nbbbb"]
+[ext_resource type="Script" uid="uid://biefxvx21uk6i" path="res://Escenas/Karel/overlord.gd" id="1_nbbbb"]
 [ext_resource type="PackedScene" uid="uid://d22hedriltsea" path="res://Escenas/Karel/karel.tscn" id="2_4r6bj"]
 [ext_resource type="Texture2D" uid="uid://ddipe3vsy58ov" path="res://Recursos/Img/karel/floor.png" id="2_34qkr"]
 [ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="3_ynoeh"]

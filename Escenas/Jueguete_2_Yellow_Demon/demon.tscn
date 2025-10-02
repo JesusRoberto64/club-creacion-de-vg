@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lfbe0y63aya"]
 
 [ext_resource type="Texture2D" uid="uid://ddipe3vsy58ov" path="res://Recursos/Img/karel/floor.png" id="1_p6ebn"]
-[ext_resource type="Script" path="res://Escenas/Jueguete_2_Yellow_Demon/demon.gd" id="1_qyy7i"]
+[ext_resource type="Script" uid="uid://bu8i3sbka0vbo" path="res://Escenas/Jueguete_2_Yellow_Demon/demon.gd" id="1_qyy7i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bic0y"]
 size = Vector2(16, 16)

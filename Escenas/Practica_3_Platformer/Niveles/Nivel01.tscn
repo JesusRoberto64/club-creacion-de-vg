@@ -1,21 +1,24 @@
-[gd_scene load_steps=8 format=4 uid="uid://d4dakr4cj6xlc"]
+[gd_scene load_steps=9 format=4 uid="uid://d4dakr4cj6xlc"]
 
-[ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/main.gd" id="1_y2w0q"]
+[ext_resource type="Script" uid="uid://dqw1hk1ey1vgh" path="res://Escenas/Practica_3_Platformer/main.gd" id="1_y2w0q"]
 [ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="2_ih6mp"]
 [ext_resource type="PackedScene" uid="uid://ckcydfpcy410k" path="res://Escenas/Practica_3_Platformer/player.tscn" id="2_qb004"]
 [ext_resource type="PackedScene" uid="uid://cshop43vbxlik" path="res://Escenas/Practica_3_Platformer/Utils/canvas_level.tscn" id="4_7ircp"]
 [ext_resource type="PackedScene" uid="uid://5gcc7skxn2kl" path="res://Escenas/Practica_3_Platformer/end_button.tscn" id="5_a7u7p"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eiqip"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oetwc"]
+size = Vector2(1122, 40)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6q4xi"]
 texture = ExtResource("2_ih6mp")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="TileSet" id="TileSet_urbr3"]
+[sub_resource type="TileSet" id="TileSet_rdymt"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_eiqip")
+sources/0 = SubResource("TileSetAtlasSource_6q4xi")
 
 [node name="Nivel01" type="Node2D"]
 script = ExtResource("1_y2w0q")
@@ -23,11 +26,17 @@ script = ExtResource("1_y2w0q")
 [node name="Player" parent="." instance=ExtResource("2_qb004")]
 position = Vector2(88, 104)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAALAAQAAAAAAAAAAAALAAMAAAAAAAAAAAALAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAAIAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_urbr3")
-
 [node name="CanvasLevel" parent="." instance=ExtResource("4_7ircp")]
 
 [node name="EndButton" parent="." instance=ExtResource("5_a7u7p")]
-position = Vector2(296, 144)
+position = Vector2(440, -368)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(559, 460)
+shape = SubResource("RectangleShape2D_oetwc")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//w4AAAAAAAAAAAD//w0AAAAAAAAAAAD//wwAAAAAAAAAAAD//wsAAAAAAAAAAAD//woAAAAAAAAAAAD//wkAAAAAAAAAAAD//wgAAAAAAAAAAAD//wcAAAAAAAAAAAD//wYAAAAAAAAAAAD//wUAAAAAAAAAAAD//wQAAAAAAAAAAAD//wMAAAAAAAAAAAD//wIAAAAAAAAAAAD//wEAAAAAAAAAAAD//wAAAAAAAAAAAAAjAA4AAAAAAAAAAAAjAA0AAAAAAAAAAAAjAAwAAAAAAAAAAAAjAAsAAAAAAAAAAAAjAAoAAAAAAAAAAAAjAAkAAAAAAAAAAAAjAAgAAAAAAAAAAAAjAAcAAAAAAAAAAAAjAAYAAAAAAAAAAAAjAAUAAAAAAAAAAAAjAAQAAAAAAAAAAAAjAAMAAAAAAAAAAAAjAAIAAAAAAAAAAAAjAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_rdymt")

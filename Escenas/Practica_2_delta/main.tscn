@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmpyn17hrvh7u"]
 
 [ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="1_0kwyo"]
-[ext_resource type="Script" path="res://Escenas/Practica_2_delta/main.gd" id="1_xesdg"]
+[ext_resource type="Script" uid="uid://cdwxqv3xo2kl1" path="res://Escenas/Practica_2_delta/main.gd" id="1_xesdg"]
 [ext_resource type="Texture2D" uid="uid://5eaheip2q6bn" path="res://Recursos/Img/general/brick.png" id="2_1jbdq"]
-[ext_resource type="Script" path="res://Escenas/Practica_2_delta/player.gd" id="3_b2wwx"]
+[ext_resource type="Script" uid="uid://dx4c2lblt046g" path="res://Escenas/Practica_2_delta/player.gd" id="3_b2wwx"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_xesdg")

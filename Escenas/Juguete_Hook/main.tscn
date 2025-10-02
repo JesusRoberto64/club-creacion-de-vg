@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c46l0e1fvgpg7"]
 
-[ext_resource type="Script" path="res://Escenas/Juguete_Hook/player.gd" id="1_rp2ax"]
+[ext_resource type="Script" uid="uid://b7mhqlkxg3t52" path="res://Escenas/Juguete_Hook/player.gd" id="1_rp2ax"]
 [ext_resource type="Texture2D" uid="uid://dbr4gx0f4645u" path="res://Recursos/Img/karel/karel.png" id="2_oa4tj"]
-[ext_resource type="Script" path="res://Escenas/Juguete_Hook/hook.gd" id="3_a6xxn"]
+[ext_resource type="Script" uid="uid://cogn2iaiv6htj" path="res://Escenas/Juguete_Hook/hook.gd" id="3_a6xxn"]
 [ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="5_ojcq8"]
 [ext_resource type="PackedScene" uid="uid://dbhcl6xfhcupi" path="res://Escenas/Miscelanea/basic_wall.tscn" id="5_rvcjq"]
 [ext_resource type="Texture2D" uid="uid://dlcp34i5y7e7y" path="res://Recursos/Img/general/SCREEN_180x320.png" id="6_clec3"]

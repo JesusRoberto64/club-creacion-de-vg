@@ -2,19 +2,19 @@ extends CharacterBody2D
 
 # ===== Configuración de Movimiento =====
 @export_category("Movement Settings")
-@export_range(0.0, 1000.0) var speed : float = 150.0
-@export_range(0.0, 1000.0) var max_speed: float = 300.0
-@export_range(0.0, 1000.0) var sprint_speed: float = 150.0
+@export_range(0.0, 1000.0) var speed : float = 30.0
+@export_range(0.0, 1000.0) var max_speed: float = 150.0
+@export_range(0.0, 1000.0) var sprint_speed: float = 180.0
 @onready var acceleration_curve = $CurveMovement
 @onready var sprint_curve = $CurveSprint 
 var accel_x : float = 0.0
 
 # ===== Configuración de Salto y Gravedad =====
 @export_category("Jump/Gravity Settings")
-@export_range(0.0, 1000.0) var jump_force: float = 400.0
-@export_range(0.0, 1000.0) var jump_impulse: float = 48.0
-@export_range(0.0, 1000.0) var base_gravity: float = 62.72
-@export_range(0.0, 1000.0) var fall_gravity: float = 63.0
+@export_range(0.0, 1000.0) var jump_force: float = 640.0
+@export_range(0.0, 1000.0) var jump_impulse: float = 20.0
+@export_range(0.0, 1000.0) var base_gravity: float = 45.0
+@export_range(0.0, 1000.0) var fall_gravity: float = 50.0
 
 # ===== Variables de Estado =====
 var current_direction: float = 1.0
@@ -36,6 +36,10 @@ signal change_combo(_combo)
 
 #STATE LOGIC
 var stop_sate = false
+
+# Anim
+@onready var anim : AnimatedSprite2D = $Karel
+var anim_mov : float = 0.0
 
 func _physics_process(delta: float) -> void:
 	if stop_sate: return
@@ -77,7 +81,7 @@ func _physics_process(delta: float) -> void:
 	
 	# handle movement input
 	var mov : float = Input.get_axis("ui_left", "ui_right")
-	
+	anim_mov = mov
 	#this accel button function
 	sprint_input(delta, mov)
 	
@@ -106,8 +110,24 @@ func _physics_process(delta: float) -> void:
 		update_ui(delta)
 	else:
 		jump_hold_timer = 0.0
+
+func _process(_delta) -> void:
+	if current_direction > 0.0:
+		anim.flip_h = false
+	else:
+		anim.flip_h = true
 	
-	$Karel.scale.x = current_direction
+	if !is_on_floor():
+		if velocity.y > 0.0:
+			anim.play("fall")
+		else:
+			anim.play("jump")
+	else:
+		if anim_mov == 0.0:
+			anim.play("idle")
+		else:
+			anim.play("walk")
+	
 
 # ===== Funciones Modularizadas =====
 func handle_jump_impulse() -> void:

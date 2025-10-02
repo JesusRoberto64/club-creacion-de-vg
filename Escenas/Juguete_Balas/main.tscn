@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://c7gd0tisfd5kl"]
 
-[ext_resource type="Script" path="res://Escenas/Juguete_Balas/main.gd" id="1_5svet"]
-[ext_resource type="Script" path="res://Escenas/Juguete_Balas/player.gd" id="1_62pdo"]
+[ext_resource type="Script" uid="uid://cx2hulaenv46a" path="res://Escenas/Juguete_Balas/main.gd" id="1_5svet"]
+[ext_resource type="Script" uid="uid://d30e3ok0y3u4b" path="res://Escenas/Juguete_Balas/player.gd" id="1_62pdo"]
 [ext_resource type="Texture2D" uid="uid://qgn16ocargjc" path="res://Recursos/Img/karel/orb.png" id="2_i7tlk"]
 [ext_resource type="Texture2D" uid="uid://bk1wls07p2blm" path="res://Recursos/Img/general/SKY_180x320.png" id="3_orq8b"]
 [ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="4_b2257"]

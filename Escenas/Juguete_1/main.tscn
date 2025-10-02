@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://dexnjvkw7vems"]
 
-[ext_resource type="Script" path="res://Escenas/Juguete_1/main.gd" id="1_gpdua"]
-[ext_resource type="Script" path="res://Escenas/Juguete_1/player.gd" id="1_k0ywn"]
+[ext_resource type="Script" uid="uid://jw13c0c6m5v" path="res://Escenas/Juguete_1/main.gd" id="1_gpdua"]
+[ext_resource type="Script" uid="uid://swneet8psm1b" path="res://Escenas/Juguete_1/player.gd" id="1_k0ywn"]
 [ext_resource type="Texture2D" uid="uid://b11p0maqdfxna" path="res://Recursos/Img/karel/floor2.png" id="1_xj2yi"]
 [ext_resource type="Texture2D" uid="uid://5eaheip2q6bn" path="res://Recursos/Img/general/brick.png" id="2_utdaw"]
 [ext_resource type="Texture2D" uid="uid://bf3rohvc2xssl" path="res://Recursos/Img/general/anim_map.png" id="4_58squ"]

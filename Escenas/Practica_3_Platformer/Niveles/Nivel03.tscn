@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://c301m3675rq0"]
 
-[ext_resource type="Script" path="res://Escenas/Practica_3_Platformer/main.gd" id="1_2hg25"]
+[ext_resource type="Script" uid="uid://dqw1hk1ey1vgh" path="res://Escenas/Practica_3_Platformer/main.gd" id="1_2hg25"]
 [ext_resource type="PackedScene" uid="uid://ckcydfpcy410k" path="res://Escenas/Practica_3_Platformer/player.tscn" id="2_amgl1"]
 [ext_resource type="Texture2D" uid="uid://cc00m0osn2fhs" path="res://Recursos/Img/karel/wall.png" id="2_fv4hu"]
 [ext_resource type="PackedScene" uid="uid://cshop43vbxlik" path="res://Escenas/Practica_3_Platformer/Utils/canvas_level.tscn" id="4_f6par"]
