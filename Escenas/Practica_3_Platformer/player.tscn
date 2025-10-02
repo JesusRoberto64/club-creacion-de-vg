@@ -261,8 +261,10 @@ releace_curve = SubResource("Curve_t7wmk")
 [node name="Karel" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_l58lg")
-animation = &"fall"
+animation = &"idle"
 autoplay = "idle"
+frame = 9
+frame_progress = 0.0040237
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -2)

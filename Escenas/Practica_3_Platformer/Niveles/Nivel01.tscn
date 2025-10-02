@@ -29,7 +29,7 @@ position = Vector2(88, 104)
 [node name="CanvasLevel" parent="." instance=ExtResource("4_7ircp")]
 
 [node name="EndButton" parent="." instance=ExtResource("5_a7u7p")]
-position = Vector2(440, -368)
+position = Vector2(1064, 408)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

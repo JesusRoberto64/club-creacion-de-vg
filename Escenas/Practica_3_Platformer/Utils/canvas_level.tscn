@@ -1,11 +1,143 @@
-[gd_scene load_steps=5 format=3 uid="uid://cshop43vbxlik"]
+[gd_scene load_steps=14 format=3 uid="uid://cshop43vbxlik"]
 
 [ext_resource type="Texture2D" uid="uid://1kiemg66poxp" path="res://Recursos/Img/general/fondo_karel_Layer_03.png" id="1_6gymc"]
+[ext_resource type="Script" uid="uid://bvkfptr56jyhi" path="res://Escenas/Practica_3_Platformer/canvas_level.gd" id="1_47q5v"]
 [ext_resource type="Texture2D" uid="uid://2pw4767aaty5" path="res://Recursos/Img/general/fondo_karel_Layer_01.png" id="1_pee4d"]
 [ext_resource type="Texture2D" uid="uid://dr31ib1bdbnfr" path="res://Recursos/Img/general/fondo_karel_Layer_02.png" id="1_uy26d"]
 [ext_resource type="Texture2D" uid="uid://sby8rhb06nuw" path="res://Recursos/Img/general/fondo_karel_Layer_00.png" id="2_pee4d"]
+[ext_resource type="Shader" uid="uid://c6c43xohdec8y" path="res://Recursos/shaders/desaturation_mask.gdshader" id="2_rk248"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ii2qd"]
+shader = ExtResource("2_rk248")
+shader_parameter/mask = 0.0
+shader_parameter/deep = 0.3
+shader_parameter/fade_width = 0.0
+shader_parameter/amaunt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rk248"]
+shader = ExtResource("2_rk248")
+shader_parameter/mask = 0.0
+shader_parameter/deep = 0.3
+shader_parameter/fade_width = 0.137
+shader_parameter/amaunt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_47q5v"]
+shader = ExtResource("2_rk248")
+shader_parameter/mask = 0.0
+shader_parameter/deep = 0.306
+shader_parameter/fade_width = 0.052
+shader_parameter/amaunt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abwn6"]
+shader = ExtResource("2_rk248")
+shader_parameter/mask = 0.0
+shader_parameter/deep = 0.29
+shader_parameter/fade_width = 0.0
+shader_parameter/amaunt = 1.0
+
+[sub_resource type="Animation" id="Animation_rk248"]
+resource_name = "to_color"
+length = 2.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground/edificips/Sprite2D:material:shader_parameter/mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParallaxBackground/arboles/Sprite2D:material:shader_parameter/mask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.833333, 2.33333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground/cielo/Sprite2D:material:shader_parameter/amaunt")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.54)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/suelo/Sprite2D:material:shader_parameter/amaunt")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.1, 2.5)
+}
+
+[sub_resource type="Animation" id="Animation_47q5v"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground/edificips/Sprite2D:material:shader_parameter/mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParallaxBackground/arboles/Sprite2D:material:shader_parameter/mask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground/cielo/Sprite2D:material:shader_parameter/amaunt")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ParallaxBackground/suelo/Sprite2D:material:shader_parameter/amaunt")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ii2qd"]
+_data = {
+&"RESET": SubResource("Animation_47q5v"),
+&"to_color": SubResource("Animation_rk248")
+}
 
 [node name="CanvasLevel" type="CanvasLayer"]
+script = ExtResource("1_47q5v")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 8.0
@@ -39,33 +171,42 @@ horizontal_alignment = 1
 scroll_base_scale = Vector2(2, 2)
 scroll_ignore_camera_zoom = true
 
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="cielo" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.01, 0.01)
 motion_mirroring = Vector2(1080, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/cielo"]
+material = SubResource("ShaderMaterial_ii2qd")
 texture = ExtResource("1_6gymc")
 centered = false
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="edificips" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.05, 0.05)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/edificips"]
+material = SubResource("ShaderMaterial_rk248")
 texture = ExtResource("1_uy26d")
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="arboles" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(1080, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/arboles"]
+material = SubResource("ShaderMaterial_47q5v")
 texture = ExtResource("1_pee4d")
 centered = false
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="suelo" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1080, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/suelo"]
+material = SubResource("ShaderMaterial_abwn6")
 texture = ExtResource("2_pee4d")
 centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ii2qd")
+}

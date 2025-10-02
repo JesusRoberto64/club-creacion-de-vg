@@ -3,13 +3,15 @@ extends Node2D
 var max_combo = 0
 
 @onready var end_button = $EndButton
+@onready var canvas_level = $CanvasLevel
 
 func _ready() -> void:
 	$Player.connect("change_combo", change_combo)
-	end_button.connect("pressed", pressed_complete)
-	
+	#end_button.connect("pressed", pressed_complete)
+	end_button.connect("pressed",canvas_level.to_color)
 	#SET UI
 	$CanvasLevel/Nivel.text = "Nivel " + str(Singleton.cur_level + 1)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
