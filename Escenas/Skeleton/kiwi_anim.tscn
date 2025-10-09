@@ -1,0 +1,216 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwih47gxtl2xc"]
+
+[ext_resource type="Texture2D" uid="uid://dabf1e4luyb0m" path="res://Recursos/Img/general/kiwi.png" id="1_ducoe"]
+
+[sub_resource type="Animation" id="Animation_ducoe"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/cadera/cuerpo/pecho/cabeza/pico:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.523598, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/cadera/cuerpo/pecho/cabeza/pico:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/cadera/cuerpo/pecho/cabeza/pico:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/cadera/cuerpo/pecho/cabeza:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/cadera/cuerpo/pecho:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_1ghl4"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/cadera/cuerpo/pecho/cabeza/pico:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.523598, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/cadera/cuerpo/pecho/cabeza/pico:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/cadera/cuerpo/pecho/cabeza/pico:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/cadera/cuerpo/pecho/cabeza:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/cadera/cuerpo/pecho:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f816p"]
+_data = {
+&"RESET": SubResource("Animation_1ghl4"),
+&"idle": SubResource("Animation_ducoe")
+}
+
+[node name="kiwi_anim" type="Node2D"]
+
+[node name="polygons" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="pierna_izq" type="Polygon2D" parent="polygons"]
+position = Vector2(-48, -80)
+texture = ExtResource("1_ducoe")
+polygon = PackedVector2Array(257.542, 333.139, 260.026, 363.44, 277.412, 391.754, 292.811, 395.728, 295.791, 414.604, 287.346, 433.48, 268.967, 442.918, 266.98, 455.336, 294.798, 460.8, 321.125, 472.721, 351.923, 490.106, 363.845, 486.629, 357.884, 474.708, 370.302, 471.23, 369.309, 453.348, 353.91, 449.374, 359.871, 432.982, 323.112, 427.021, 322.617, 388.274, 322.12, 351.515, 326.59, 324.193, 325.597, 297.369, 299.27, 280.977, 277.413, 294.886)
+uv = PackedVector2Array(257.542, 333.139, 260.026, 363.44, 277.412, 391.754, 292.811, 395.728, 295.791, 414.604, 287.346, 433.48, 268.967, 442.918, 266.98, 455.336, 294.798, 460.8, 321.125, 472.721, 351.923, 490.106, 363.845, 486.629, 357.884, 474.708, 370.302, 471.23, 369.309, 453.348, 353.91, 449.374, 359.871, 432.982, 323.112, 427.021, 322.617, 388.274, 322.12, 351.515, 326.59, 324.193, 325.597, 297.369, 299.27, 280.977, 277.413, 294.886)
+
+[node name="cuerpo" type="Polygon2D" parent="polygons"]
+texture = ExtResource("1_ducoe")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(209.481, 81.7475, 190.784, 98.5104, 150.811, 114.629, 128.89, 124.299, 91.496, 128.168, 51.5238, 168.141, 43.1423, 205.535, 36.6951, 233.903, 30.2478, 255.824, 36.6951, 266.784, 67.6419, 282.258, 100.523, 289.35, 164.996, 310.626, 221.087, 312.56, 232.692, 300.955, 273.309, 273.876, 286.849, 248.732, 293.296, 226.166, 292.651, 212.627, 299.098, 179.746, 313.282, 171.365, 327.466, 153.957, 332.624, 145.576, 342.295, 134.615, 349.387, 119.142, 360.992, 85.616, 354.545, 66.919, 337.782, 43.0641, 304.901, 35.9721, 274.599, 30.8143, 235.915, 48.2219, 223.665, 58.5375)
+uv = PackedVector2Array(209.481, 81.7475, 190.784, 98.5104, 150.811, 114.629, 128.89, 124.299, 91.496, 128.168, 51.5238, 168.141, 43.1423, 205.535, 36.6951, 233.903, 30.2478, 255.824, 36.6951, 266.784, 67.6419, 282.258, 100.523, 289.35, 164.996, 310.626, 221.087, 312.56, 232.692, 300.955, 273.309, 273.876, 286.849, 248.732, 293.296, 226.166, 292.651, 212.627, 299.098, 179.746, 313.282, 171.365, 327.466, 153.957, 332.624, 145.576, 342.295, 134.615, 349.387, 119.142, 360.992, 85.616, 354.545, 66.919, 337.782, 43.0641, 304.901, 35.9721, 274.599, 30.8143, 235.915, 48.2219, 223.665, 58.5375)
+bones = ["cadera", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "cadera/cuerpo", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/cuerpo/pecho", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/cuerpo/pecho/cabeza", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "cadera/cuerpo/pecho/cabeza/pico", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_der", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_der/pierna_der", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_der/pierna_der/pie_der", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_izq", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_izq/pierna_izq", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_izq/pierna_izq/pie_izq", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="pico" type="Polygon2D" parent="polygons"]
+position = Vector2(-16, -72)
+texture = ExtResource("1_ducoe")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(328.293, 202.871, 327.39, 181.195, 332.809, 163.132, 348.162, 155.004, 364.871, 156.358, 461.509, 252.545, 458.799, 271.511, 423.124, 260.673, 363.967, 221.837, 340.485, 212.806)
+uv = PackedVector2Array(328.293, 202.871, 327.39, 181.195, 332.809, 163.132, 348.162, 155.004, 364.871, 156.358, 461.509, 252.545, 458.799, 271.511, 423.124, 260.673, 363.967, 221.837, 340.485, 212.806)
+bones = ["cadera", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "cadera/cuerpo", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/cuerpo/pecho", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/cuerpo/pecho/cabeza", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/cuerpo/pecho/cabeza/pico", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "cadera/muslo_der", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_der/pierna_der", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_der/pierna_der/pie_der", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_izq", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_izq/pierna_izq", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "cadera/muslo_izq/pierna_izq/pie_izq", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="pierna_der" type="Polygon2D" parent="polygons"]
+position = Vector2(32, -112)
+texture = ExtResource("1_ducoe")
+polygon = PackedVector2Array(75.6859, 344.649, 81.8459, 381.609, 99.3858, 393.108, 111.291, 405.834, 122.786, 411.992, 137.975, 428.413, 146.186, 445.245, 144.956, 464.952, 141.261, 481.373, 135.514, 490.815, 117.04, 502.31, 108.008, 510.11, 107.187, 521.194, 139.619, 520.373, 153.166, 520.784, 171.64, 533.51, 189.293, 544.594, 200.377, 545.826, 193.809, 531.868, 184.366, 521.605, 209.819, 522.836, 220.082, 524.889, 215.977, 513.805, 201.198, 507.647, 213.514, 505.594, 214.335, 498.615, 202.84, 494.51, 165.482, 485.479, 169.589, 465.771, 170.82, 444.834, 174.104, 431.697, 181.907, 410.757, 183.55, 396.8, 181.497, 371.757, 181.907, 352.463, 183.55, 325.368, 154.813, 304.842, 105.96, 300.736, 70.6548, 323.726)
+uv = PackedVector2Array(75.6859, 344.649, 81.8459, 381.609, 99.3858, 393.108, 111.291, 405.834, 122.786, 411.992, 137.975, 428.413, 146.186, 445.245, 144.956, 464.952, 141.261, 481.373, 135.514, 490.815, 117.04, 502.31, 108.008, 510.11, 107.187, 521.194, 139.619, 520.373, 153.166, 520.784, 171.64, 533.51, 189.293, 544.594, 200.377, 545.826, 193.809, 531.868, 184.366, 521.605, 209.819, 522.836, 220.082, 524.889, 215.977, 513.805, 201.198, 507.647, 213.514, 505.594, 214.335, 498.615, 202.84, 494.51, 165.482, 485.479, 169.589, 465.771, 170.82, 444.834, 174.104, 431.697, 181.907, 410.757, 183.55, 396.8, 181.497, 371.757, 181.907, 352.463, 183.55, 325.368, 154.813, 304.842, 105.96, 300.736, 70.6548, 323.726)
+
+[node name="Polygon2D" type="Polygon2D" parent="polygons"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="cadera" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(192, 232)
+rest = Transform2D(1, 0, 0, 1, 192, 232)
+
+[node name="cuerpo" type="Bone2D" parent="Skeleton2D/cadera"]
+position = Vector2(56, -56)
+rest = Transform2D(1, 0, 0, 1, 56, -56)
+editor_settings/show_bone_gizmo = false
+
+[node name="pecho" type="Bone2D" parent="Skeleton2D/cadera/cuerpo"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="cabeza" type="Bone2D" parent="Skeleton2D/cadera/cuerpo/pecho"]
+position = Vector2(32, -56)
+rest = Transform2D(1, 0, 0, 1, 32, -56)
+
+[node name="pico" type="Bone2D" parent="Skeleton2D/cadera/cuerpo/pecho/cabeza"]
+position = Vector2(32, -32)
+rotation = -0.523598
+rest = Transform2D(1, 0, 0, 1, 42, -24)
+auto_calculate_length_and_angle = false
+length = 106.265
+bone_angle = 38.118
+
+[node name="muslo_der" type="Bone2D" parent="Skeleton2D/cadera"]
+position = Vector2(-24, 8)
+rest = Transform2D(1, 0, 0, 1, -24, 8)
+
+[node name="pierna_der" type="Bone2D" parent="Skeleton2D/cadera/muslo_der"]
+position = Vector2(24, 71)
+rest = Transform2D(1, 0, 0, 1, 24, 71)
+
+[node name="pie_der" type="Bone2D" parent="Skeleton2D/cadera/muslo_der/pierna_der"]
+position = Vector2(-8, 80)
+rest = Transform2D(1, 0, 0, 1, -8, 80)
+
+[node name="muslo_izq" type="Bone2D" parent="Skeleton2D/cadera"]
+position = Vector2(64, 56)
+rest = Transform2D(1, 0, 0, 1, 64, 56)
+
+[node name="pierna_izq" type="Bone2D" parent="Skeleton2D/cadera/muslo_izq"]
+position = Vector2(0, 80)
+rest = Transform2D(1, 0, 0, 1, 0, 80)
+
+[node name="pie_izq" type="Bone2D" parent="Skeleton2D/cadera/muslo_izq/pierna_izq"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f816p")
+}
+autoplay = "idle"
